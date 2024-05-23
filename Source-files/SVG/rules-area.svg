@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Text-area" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 631.29 470.42">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fdeebd;
+        stroke: #f2d42f;
+        stroke-miterlimit: 10;
+        stroke-width: 10px;
+      }
+    </style>
+  </defs>
+  <path class="cls-1" d="m625.79,58.41v353.91c-29.3,0-53.05,23.75-53.05,53.04H58.84c0-29.29-23.76-53.04-53.05-53.04V58.41c29.29,0,53.05-23.75,53.05-53.05h513.9c0,29.3,23.75,53.05,53.05,53.05Z"/>
+</svg>
