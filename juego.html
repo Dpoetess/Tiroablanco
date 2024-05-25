@@ -1,28 +1,51 @@
 <<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tiro al Blanco</title>
-    <link rel="stylesheet" href="style-game.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap" rel="stylesheet">
-</head>
-<body>
-    <section class="gamezone">
-        <div class="ducks">
-            <div class="duck"><img src="/images/design-elements__1_1.jpg" width="200"> </div>
-            <div class="duck duck2"><img src="/images/duck.webp" width="200"> </div>
-            <div class="duck duck3"><img src="/images/duck.webp" width="200"> </div>
-            <div class="duck duck4"><img src="/images/duck.webp" width="200"> </div>       
-            <div class="duck duck5"><img src="/images/duck.webp" width="200"> </div>       
-        </div>
-</section>
-    <section class="control">
-<!--        <div id="ball"></div>
-        <button><a href="">Dispara</a></button> -->
+    <link rel="stylesheet" href="style-game.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <section class="settings">
+      <button id="restart">Reinicio</button>
+      <button id="music"></button>
     </section>
 
-</body>
+    <section class="gamezone">
+      <div class="ducks">
+        <div class="duck">
+          <img src="/Source-files/SVG/duck.svg" width="100" />
+        </div>
+        <div class="duck duck2">
+          <img src="/Source-files/SVG/duck.svg" width="100" />
+        </div>
+        <div class="duck duck3">
+          <img src="/Source-files/SVG/duck.svg" width="100" />
+        </div>
+        <div class="duck duck4">
+          <img src="/Source-files/SVG/duck.svg" width="100" />
+        </div>
+        <div class="duck duck5">
+          <img src="/Source-files/SVG/duck.svg" width="100" />
+        </div>
+      </div>
+    </section>
+
+    <section class="control">
+      <!-- timer y points -->
+    </section>
+    <section class="Target">
+      <button id="shoot">Disparar</button>
+      <button id="restart">Reinicio</button>
+      <!--        <div id="ball"></div>
+        <button><a href="">Dispara</a></button> -->
+    </section>
+  </body>
 </html>
