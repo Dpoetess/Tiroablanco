@@ -1,48 +1,177 @@
+:root {
+    --whiteBlue: #ECF5F5;
+    --lightYellow: #FDEEBD;
+    --yellow: #F2D42F;
+    --pink: #EB7E83;
+    --oldRed: #E3513E;
+    --red: #F20D21;
+    --blue: #3A5C9D;
+    --darkBlue: #192F58;
+}
+* {
+    box-sizing: border-box;
+}
+@font-palette-values --boton {
+    font-family: "Bungee Spice";
+    font-size: 20px;
+    override-colors:
+    0 #ecf5f5,
+    1 #ecf5f5;
+}
+@font-palette-values --label {
+    font-family: "Bungee Spice";
+    font-size: 20px;
+    override-colors:
+    0 #192f58,
+    1 #192f58;
+}
+.bold-text1 {
+    font-family: "Bungee Spice";
+    font-palette: --boton;
+}
+.bold-text2 {
+    font-family: "Bungee Spice";
+    font-palette: --label;
+}
+html {
+    min-width: 320px;
+    max-width: 480px;
+    height: 850px;
+    font-family: "Bungee Spice", sans-serif;
+}
 body{
     width: 100%;
-    height: 100%;
-    font-family: "Bungee Spice", sans-serif;
-    background-color: gainsboro;
+    border: var(--oldRed) solid 10px;
+    height: auto;
+    background-color: var(--lightYellow);
+    display: block;
+    flex-direction: column;
 }
-
-.ducks{
-    position: absolute;
+.settings {
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.restart, .start {
+    width: 192px;
+    height: 65px;
+    background-color: var(--red);
+    border-radius: 10px;
+    border: #3a5c9d solid 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.mute {
+    background: url(/Source-files/mute.png);
+}
+.gamezone {
+    display: flex;
+}
+.frame {
+    position: static;
     padding: 0px;
     width: 100%;
-    height: 70%;
-    background: url(/images/fondo4.jpg);
-    background-size: 70%;
+    height:300px;
+    background: url(/Source-files/SVG/scene-frame.svg);
+    background-repeat: no-repeat;
+    background-origin: content-box;
+    padding: none;
     display: flex;
-    justify-content: start;
+    justify-content: end;
+    align-items: center;
+}
+.gamezone{ /*anterior class ducks*/
+    position: static;
+    padding: 0px;
+    width: 100%;
+    height:300px;
+    background: url(/Source-files/SVG/background-image.svg);
+    background-repeat: no-repeat;
+    background-origin: content-box;
+    padding: none;
+    display: flex;
+    justify-content: end;
     align-items: center;
 }
 .duck {
     position: relative;
     translate: 0 0;
-    animation: mover 2s infinite;
+    animation: mover 4s infinite;
     animation-timing-function: linear; 
 }
 .duck2 {
-    animation-delay: 0.65s;
+    animation-delay: 0.5s;
 }
 .duck3 {
-    animation-delay: 1.3s;
+    animation-delay: 1s;
 }
 .duck4 {
-    animation-delay: 1.95s;   
+    animation-delay: 1.5s;   
 }
 .duck5 {
-    animation-delay: 2.6s;   
+    animation-delay: 2s;   
 }
-.mando{
-    width: 100%;
-    height: 300px;
+.control {
+    height: 100px;
     display: flex;
-    align-items: end;
+    justify-content: space-around;
+    align-items: center;
+    background: url(/Source-files/fondorayas.png);
+    background-size: 100%;
+}
+label {
+    width: 154px;
+    height: 81px;
+    background: url(/Source-files/SVG/score-timer-area.svg);
+    background-repeat: no-repeat;
+    background-size: auto auto;
+    background-origin: content-box;
+    padding: none;
+    background-color: var(--lightYellow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.rules {
+    width: 80%;
+    height: 35%;
+    align-items: center;
+    justify-content: center;
+    background-image: url(/Source-files/SVG/rules-area.svg);
+    background-repeat: no-repeat;
+    background-size: auto auto;
+    background-origin: content-box;
+    padding: none;
+}
+/*.rules-text {
+    padding: 1rem;
+    text-align: center;
+    text-wrap: wrap;
+    text-justify: center;
+}*/
+.target {
+    background: url(/Source-files/SVG/);
+    height: 120px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: url(/Source-files/fondorayas.png);
+    background-size: 100%;
+}
+.shoot {
+    width: 113px;
+    height: 113px;
+    background-color: var(--red);
+    border-radius: 50%;
+    border: #3a5c9d solid 10px;
+    display: flex;
+    align-items: center;
     justify-content: center;
 }
 #ball{
-    width: 20px;
+    width: 80px;
     height: 20px;
     border-radius: 50%;
     background-color: red;    
@@ -56,12 +185,7 @@ body{
     translate: 0 -400px;
     opacity: 1;
 }
-button{
-    height: 20px;
-    display: flex;
-    place-content: center;
-}
 @keyframes mover {    
-    from { transform: translateX(-200px); }             
-    to { transform: translateX(1500px); } 
+    from { transform: translateX(400px); }             
+    to { transform: translateX(-200px); } 
 }
