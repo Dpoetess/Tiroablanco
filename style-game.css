@@ -1,3 +1,4 @@
+*,
 :root {
     --whiteBlue: #ECF5F5;
     --lightYellow: #FDEEBD;
@@ -7,9 +8,6 @@
     --red: #F20D21;
     --blue: #3A5C9D;
     --darkBlue: #192F58;
-}
-* {
-    box-sizing: border-box;
 }
 @font-palette-values --boton {
     font-family: "Bungee Spice";
@@ -63,13 +61,11 @@ body{
     align-items: center;
     justify-content: center;
 }
-
-#mute-icon, #play-icon {
+#play-icon, #mute-icon, #mute-button {
+    padding: 0px;
+    margin: 0;
+    border: none;
     border-radius: 50%;
-}
-
-.gamezone {
-    display: flex;
 }
 .frame {
     position: static;
