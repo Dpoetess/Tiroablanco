@@ -63,9 +63,11 @@ body{
     align-items: center;
     justify-content: center;
 }
-.mute {
-    background: url(/Source-files/mute.png);
+
+#mute-icon, #play-icon {
+    border-radius: 50%;
 }
+
 .gamezone {
     display: flex;
 }
