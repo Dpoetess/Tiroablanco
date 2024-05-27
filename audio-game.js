@@ -1,4 +1,4 @@
-document.getElementById("play-button").addEventListener("click", playAudio);
+document.getElementById("shoot-button").addEventListener("click", playAudio);
 
 function playAudio() {
   const audio = document.getElementById("autoplay-audio");
