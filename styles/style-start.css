@@ -1,59 +1,18 @@
 /*Mobile size*/
+@import "/styles/common-styles.css";
 
-html {
-    min-width: 320px;
-    max-width: 480px;
-    height: 850px;
-}
 
-* {
-    box-sizing: border-box;
-}
-
-:root {
-    --whiteBlue: #ECF5F5;
-    --lightYellow: #FDEEBD;
-    --yellow: #F2D42F;
-    --pink: #EB7E83;
-    --oldRed: #E3513E;
-    --red: #F20D21;
-    --blue: #3A5C9D;
-    --darkBlue: #192F58;
-}
-
-@font-palette-values --Alternate {
-    font-family: "Bungee Spice";
-    override-colors:
-    0 #192F58,
-    1 #192F58;
-}
-
-@font-palette-values --ButtonColor {
-    font-family: "Bungee Spice";
-    override-colors:
-    0 #ECF5F5,
-    1 #ECF5F5;
-}
 body {
-    margin: 2em;
+    margin: 0;
     font-size: 10px;
     height: 100%;
-    width: 390px;
+    width: 480px;
     container-type: inline-size;
 }
 
 @container (min-width: 200px) and (max-width:480px) {
 
-    .regular-text {
-        font-family: "Tenor Sans";
-        color: var(--darkBlue);
-        font-size: 2em;
-    }
     
-    .bold-text {
-        font-family: "Bungee Spice";
-            font-palette: --Alternate;
-    }
     
     .frames {
         position: absolute;
@@ -163,7 +122,7 @@ body {
         align-items: center;
     }
     
-    #name, #buttonstart {
+    #name {
         width: 55%;
         border-radius: 0.7em;
         border: 10px var(--blue) solid;
@@ -183,12 +142,6 @@ body {
     }
     
     
-    .start-button {
-        background-color:var(--red);
-        font-palette: --ButtonColor;
-        font-size: 2em;
-        padding: 0.8em;
-    }
     
     
 }

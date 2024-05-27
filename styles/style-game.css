@@ -1,35 +1,12 @@
-  :root {
-    --whiteBlue: #ecf5f5;
-    --lightYellow: #fdeebd;
-    --yellow: #f2d42f;
-    --pink: #eb7e83;
-    --oldRed: #e3513e;
-    --red: #f20d21;
-    --blue: #3a5c9d;
-    --darkBlue: #192f58;
-  }
+@import "/styles/common-styles.css";
 
- * {
-  box-sizing: border-box;
-}
-
-@font-palette-values --boton {
-  font-family: "Bungee Spice";
-  font-size: 20px;
-  override-colors: 0 #ecf5f5, 1 #ecf5f5;
-}
-@font-palette-values --label {
-  font-family: "Bungee Spice";
-  font-size: 20px;
-  override-colors: 0 #192f58, 1 #192f58;
-}
 .bold-text1 {
   font-family: "Bungee Spice";
-  font-palette: --boton;
+  font-palette: --ButtonColor;
 }
 .bold-text2 {
   font-family: "Bungee Spice";
-  font-palette: --label;
+  font-palette: --TextColor;
 }
 
 html { 
@@ -43,12 +20,15 @@ body {
   width: auto;
   border: var(--oldRed) solid 10px;
   height: 100%;
+  margin: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   background: url(/Source-files/fondorayas.png);
   background-size: 100%;
+  background-repeat: no-repeat;
 }
+
 .settings {
   height: 100px;
   display: flex;
@@ -56,6 +36,7 @@ body {
   align-items: center;
   background-color: var(--lightYellow);
 }
+
 .restart,
 .start {
   width: 192px;
