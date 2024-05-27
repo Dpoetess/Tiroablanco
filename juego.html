@@ -1,48 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tiro al Blanco</title>
-    <link rel="stylesheet" href="style-game.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap" rel="stylesheet">
-</head>
+    <link rel="stylesheet" href="style-game.css" media="(max-width:500px)" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<body>
-    <section class="settings">
-        <button class="restart bold-text1">Reiniciar</button>
-        <!--        <button class="mute"></button>-->
-        <button id="mute-button">
-            <img id="play-icon" src="/Source-files/play-icon.png" width="70">
-            <img id="mute-icon" src="/Source-files/mute.png" width="70" style="display: none">
-        </button>
-    </section>
+  <body>
+    <header class="settings">
+      <button class="restart bold-text1">Reiniciar</button>
+      <button id="mute-button">
+        <img id="play-icon" src="/Source-files/play-icon.png" width="60" />
+        <img
+          id="mute-icon"
+          src="/Source-files/Sound muted butto.svg"
+          width="60"
+          style="display: none"
+        />
+      </button>
+    </header>
     <section class="gamezone">
-        <div class="frame">
-            <div class="duck"><img src="/Source-files/SVG/duck.svg" width="70"> </div>
-            <div class="duck duck2"><img src="/Source-files/SVG/duck.svg" width="70"> </div>
-            <div class="duck duck3"><img src="/Source-files/SVG/duck.svg" width="70"> </div>
-            <div class="duck duck4"><img src="/Source-files/SVG/duck.svg" width="70"> </div>
-            <div class="duck duck5"><img src="/Source-files/SVG/duck.svg" width="70"> </div>
+      <div class="frame">
+        <div class="duck">
+          <img src="/Source-files/SVG/duck.svg" width="70" />
         </div>
+        <div class="duck duck2">
+          <img src="/Source-files/SVG/duck.svg" width="70" />
+        </div>
+        <div class="duck duck3">
+          <img src="/Source-files/SVG/duck.svg" width="70" />
+        </div>
+        <div class="duck duck4">
+          <img src="/Source-files/SVG/duck.svg" width="70" />
+        </div>
+        <div class="duck duck5">
+          <img src="/Source-files/SVG/duck.svg" width="70" />
+        </div>
+      </div>
+    </section>
+    <section class="infogame">
+      <label class="time bold-text2">Tiempo:</label>
+      <label class="score bold-text2">Puntuación</label>
     </section>
     <section class="control">
-        <label class="time bold-text2">Tiempo:</label>
-        <label class="score bold-text2">Puntuación</label>
-    </section>
-    <section class="target">
-        <button class="shoot bold-text1">Disparar</button>
-        <button id="play-button" class="start bold-text1">Iniciar</button>
-        <audio id="autoplay-audio" loop>
-            <source src="./audio-game/audio-game.mp3" type="audio/mpeg">
-        </audio>
-        <!--        <div id="ball"></div>-->
+      <button class="shoot bold-text1">Disparar</button>
+      <!-- <button id="play-button" class="start bold-text1">Iniciar</button> -->
+      <audio id="autoplay-audio" loop>
+        <source src="./audio-game/audio-game.mp3" type="audio/mpeg" />
+      </audio>
     </section>
     <script src="audio-game.js"></script>
-
-</body>
-
+  </body>
 </html>
