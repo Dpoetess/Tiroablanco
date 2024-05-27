@@ -148,18 +148,19 @@ body {
     
     .rules {
         width: 80%;
-        height: 35%;
+        height: 30cqh;
+        display: flex;
         align-items: center;
         justify-content: center;
         background-image: url(/Source-files/SVG/rules-area.svg);
         background-repeat: no-repeat;
-        background-size: 80cqw 25cqh;
+        background-size: 80cqw 30cqh;
         background-origin: content-box;
         padding: none;
     }
     
     .rules-text {
-        padding: 0.5rem 1rem;
+        padding: 1rem;
         text-align: center;
         text-justify: center;
     }
