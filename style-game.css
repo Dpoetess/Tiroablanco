@@ -74,21 +74,12 @@ body {
   border: 0;
   background: rgba(0, 0, 0, 0);
 }
-<<<<<<< HEAD
 
 /* #mute-icon, 
 #play-icon {
   border: 0;
 }*/
 
-=======
-#play-icon, #mute-icon, #mute-button {
-  padding: 0px;
-  margin: 0;
-  border: none;
-  border-radius: 50%;
-}
->>>>>>>c3accfcf6ba19e75fa0a2efe49b35f5555805a13 .frame {
   padding: 0px;
   width: 100%;
   height: 500px;
