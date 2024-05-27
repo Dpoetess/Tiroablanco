@@ -43,6 +43,15 @@ body {
 }
 
 @container (min-width: 200px) and (max-width:480px) {
+body {
+    margin: 2em;
+    font-size: 10px;
+    height: 100%;
+    width: 390px;
+    container-type: inline-size;
+}
+
+@container (min-width: 200px) and (max-width:480px) {
 
     .regular-text {
         font-family: "Tenor Sans";
@@ -139,19 +148,18 @@ body {
     
     .rules {
         width: 80%;
-        height: 30cqh;
-        display: flex;
+        height: 35%;
         align-items: center;
         justify-content: center;
         background-image: url(/Source-files/SVG/rules-area.svg);
         background-repeat: no-repeat;
-        background-size: 80cqw 30cqh;
+        background-size: 80cqw 25cqh;
         background-origin: content-box;
         padding: none;
     }
     
     .rules-text {
-        padding: 1rem;
+        padding: 0.5rem 1rem;
         text-align: center;
         text-justify: center;
     }
