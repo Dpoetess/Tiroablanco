@@ -17,7 +17,7 @@ html {
 }
 
 body {
-  height: 100vh;
+  /* height: 100vh; */
   max-width: 1280px;
   border: var(--oldRed) solid 10px;
   margin: 0;
@@ -91,12 +91,8 @@ body {
 .duck5 {
   animation-delay: 2s;
 }
-
-.bottom-section {
-  background: url(/Source-files/fondorayas.png);
-  background-size: 100%;
-  background-repeat: no-repeat;
-}
+  
+.vertical-stripes { background: repeating-linear-gradient( 90deg, var(--lightYellow), var(--lightYellow) 30px, #eb7e83a1 30px, #eb7e83a1 60px) }
 
 .infogame {
   display: flex;
