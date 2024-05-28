@@ -1,31 +1,68 @@
 # SHOOTING DUCKS
-Target shooting game - proyecto Carnival DOM
-========================================
+
+# Target shooting game - project Carnival DOM
 
 ## Table of contents
-1. General info
-2. Instructions
+
+1. Description
+2. Screenshots
 3. Technical info
-4. Local installation
-5. Authors and acknowledgement
+4. Installation
+5. Game Instructions
+6. Features
+7. Roadmap
+8. Authors and acknowledgement
 
-***
-## General info
+---
+
+## Description
+
 This is a typical carnival target shooting game created for AZARGame.
-The objective of the game is to shoot the maximum number of ducks in the time limit. 
+The objective of the game is to shoot the maximum number of ducks in the time limit.
 
-## Instructions
-. Enter username. If no username is entered, a default username will be assigned. 
-. Click "start game" button to play. 
+## Screenshots
+
+## Technical info
+
+. HTML5
+. CSS3
+. ECMAScript 6
+
+## Installation
+
+- npm install
+
+## Game Instructions
+
+. Enter username. If no username is entered, a default username will be assigned.
+. Click "start game" button to play.
 . Click "shoot" button to shoot at duck
 . Game over when time is up.
 
-## Technical info
-. HTML
-. CSS
-. Javascript
+## Features
 
-## Local Installation
+- **Interactive Design:** Creatively designed to be interactive and entertaining.
+- **Animations and Transitions:** Incorporates numerous animations and transitions to enhance visual appeal and business value.
+- **Home Screen:** Provides a home screen where users can start the game.
+- **Username Input:** Allows users to access to the game with an username.
+- **Sound Effects:** Includes sound effects to enhance the gaming experience.
+- **Aiming Sight Shotgun:** Includes a sight shotgun for aiming.
+- **Timer:** Displays a countdown timer to track the game duration.
+- **Scoring System:** Has a scoring system to keep track of the player's points.
+- **Reset Button:** Includes a reset button to restart the game easily.
+
+## Roadmap
+
+- [] **Increasing Difficulty Levels::** Introduces progressively harder levels to challenge the player.
 
 ## Authors and acknowledgement
-Created by the Duckers: Rossemary Castellanos, Isabel Afonso, Corina Prescornita, Ekaterina Buinovskaia, Lynn Poh
+
+Created by the Duckers:
+
+- Rossemary Castellanos: [castellanorn](https://github.com/castellanorn)
+- Ekaterina Buinovskaia: [BSN-Asumiko](https://github.com/BSN-Asumiko)
+- Isabel Afonso: [IsaLagu](https://github.com/IsaLagu)
+- Lynn Poh: [Dpoetess](https://github.com/Dpoetess)
+- Corina Prescornita: [coryna1ro](https://github.com/coryna1ro)
+
+We are excited to start this journey with you and create an exceptional online gaming experience for AZARGame. Let's work together to bring these fairground games to life!
