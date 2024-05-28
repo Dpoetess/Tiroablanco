@@ -124,7 +124,7 @@ body {
         border: 10px solid var(--blue) ;
         margin: 1em 0;
         background-color:var(--pink);
-        padding: 1.2em;
+        padding: 1em;
         font-size: 2em;
     }
     
@@ -134,8 +134,20 @@ body {
         outline: none;
     }
 
+    ::placeholder {
+        font-family: "Tenor Sans";
+        font-size: 1.1em;
+        text-align: center;
+        color: var(--whiteBlue);
+    }
     
-    
+    input[type=text] {
+        font-family: "Tenor Sans";
+        
+        text-align: center;
+        color: var(--darkBlue);
+        font-weight: bold;
+    }
     
     
 }
