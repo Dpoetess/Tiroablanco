@@ -1,5 +1,12 @@
 @import "/styles/common-styles.css";
 
+html {
+  font-family: "Bungee Spice", sans-serif;
+  min-width: auto;
+  max-width: none;
+  height: auto;
+}
+
 .bold-text1 {
   font-family: "Bungee Spice";
   font-palette: --ButtonColor;
@@ -9,32 +16,21 @@
   font-palette: --TextColor;
 }
 
-html { 
-  min-width: 320px;
-  max-width: 480px;
-  height: 850px;
-  font-family: "Bungee Spice", sans-serif;
-} 
-
 body {
-  width: auto;
+  height: 100vh;
+  max-width: 1280px;
   border: var(--oldRed) solid 10px;
-  height: 100%;
   margin: 0;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  background: url(/Source-files/fondorayas.png);
-  background-size: 100%;
-  background-repeat: no-repeat;
+  background-color: var(--lightYellow);
 }
 
 .settings {
-  height: 100px;
+  margin: 20px;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: var(--lightYellow);
 }
 
 .restart,
@@ -43,46 +39,40 @@ body {
   height: 65px;
   background-color: var(--red);
   border-radius: 10px;
-  border: #3a5c9d solid 10px;
+  border: var(--blue) solid 10px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 #play-icon, #mute-icon, #mute-button {
-  padding: 0px;
+  padding: 0;
   margin: 0;
   border: none;
   border-radius: 50%;
 }
 
 .frame {
-  padding: 0px;
-  width: 100%;
-  height: 500px;
-  background: url(/Source-files/SVG/scene-frame.svg) center center no-repeat;
-  background-size: cover;
-  background-origin: content-box;
-  padding: none;
+  height: 378px;
+  width: auto;
+  background: url(/Source-files/frame-background.png) center no-repeat;
   display: flex;
-  justify-content: end;
+  justify-content: center;
   align-items: center;
 }
 
 .gamezone {
-  position: static;
-  padding: 0px;
-  width: 100%;
-  height: 500px;
-  background: url(/Source-files/SVG/background-image.svg) center center
-    no-repeat;
-  background-size: cover;
-  background-origin: content-box;
-  padding: none;
+  margin-top: 20px;
+}
+
+.row-ducks {
   display: flex;
-  justify-content: end;
+  overflow: hidden;
+  width: 305px;
+  justify-content: center;
   align-items: center;
 }
+
 .duck {
   position: relative;
   translate: 0 0;
@@ -101,67 +91,50 @@ body {
 .duck5 {
   animation-delay: 2s;
 }
+
+.bottom-section {
+  background: url(/Source-files/fondorayas.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
 .infogame {
-  height: 100px;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
 label {
+  margin: 20px;
   width: 154px;
-  height: 81px;
+  height: 69px;
   background: url(/Source-files/SVG/score-timer-area.svg);
   background-repeat: no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.rules {
-  width: 80%;
-  height: 35%;
-  align-items: center;
-  justify-content: center;
-  background-image: url(/Source-files/SVG/rules-area.svg);
-  background-repeat: no-repeat;
-  background-size: auto auto;
-  background-origin: content-box;
-  padding: none;
-}
 
 .control {
-  background: url(/Source-files/SVG/);
-  height: 120px;
+  margin-bottom: 20px;
   display: flex;
   justify-content: space-around;
   align-items: center;
   background-size: 100%;
 }
+
 .shoot {
+  padding: 20px;
   width: 113px;
   height: 113px;
   background-color: var(--red);
   border-radius: 50%;
-  border: #3a5c9d solid 10px;
+  border: var(--blue) solid 10px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-#ball {
-  width: 80px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: red;
-  opacity: 1;
-  display: flex;
-  transition-duration: 0.3s;
-  transition-timing-function: linear;
-  translate: 0 0;
-}
-#ball:hover {
-  translate: 0 -400px;
-  opacity: 1;
-}
+
 @keyframes mover {
   from {
     transform: translateX(400px);
