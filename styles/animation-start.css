@@ -1,0 +1,26 @@
+
+@import "/styles/common-styles.css";
+
+@keyframes light-up {
+    0% {
+    box-shadow: 1px 1px 10px 5px var(--whiteBlue);
+    }
+    25% {
+    box-shadow: 1px 1px 15px 5px var(--whiteBlue);
+    }
+    50% {
+    box-shadow: 1px 1px 20px 5px var(--whiteBlue);
+    }
+    75% {
+    box-shadow: 1px 1px 25px 5px var(--whiteBlue);
+    }
+    100% {
+    box-shadow: none;
+    }
+}
+
+.light {animation-duration: 1.2s;
+    animation-iteration-count: infinite;
+    animation-name: light-up;
+    z-index: 1;
+}
