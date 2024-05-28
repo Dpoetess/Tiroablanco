@@ -8,6 +8,7 @@ body {
     height: 100%;
     width: 480px;
     container-type: inline-size;
+    position: relative;
 }
 
 @container (min-width: 200px) and (max-width:480px) {
@@ -21,15 +22,10 @@ body {
 
 @container (min-width: 200px) and (max-width:480px) {
 
-    
-    
-    .frames {
+        .frame-right, .frame-left, .frame-top, .frame-bottom {
         position: absolute;
         height: 850px;
-        width: inherit;
-    }
-    
-    .frame-right, .frame-left, .frame-top, .frame-bottom {
+        width: 100%;
         background-color: var(--yellow);
         border: var(--red) 0.6em solid;
         position: absolute;
@@ -134,21 +130,19 @@ body {
     #name {
         width: 55%;
         border-radius: 0.7em;
-        border: 10px var(--blue) solid;
+        border: 10px solid var(--blue) ;
         margin: 1em 0;
-    }
-    
-    #name {
         background-color:var(--pink);
         padding: 1.2em;
+        font-size: 2em;
     }
     
-    ::placeholder {
-        font-family: "Tenor Sans";
-        font-size: 1.4em;
-        text-align: center;
-        color: var(--whiteBlue);
+    #name:focus {
+        background-color: var(--yellow);
+        border: 10px solid var(--blue);
+        outline: none;
     }
+
     
     
     
