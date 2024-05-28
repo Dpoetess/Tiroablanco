@@ -20,33 +20,36 @@
   </header>
   <section class="gamezone">
     <div class="frame">
-      <div class="duck">
-        <img src="/Source-files/SVG/duck.svg" width="70" />
-      </div>
-      <div class="duck duck2">
-        <img src="/Source-files/SVG/duck.svg" width="70" />
-      </div>
-      <div class="duck duck3">
-        <img src="/Source-files/SVG/duck.svg" width="70" />
-      </div>
-      <div class="duck duck4">
-        <img src="/Source-files/SVG/duck.svg" width="70" />
-      </div>
-      <div class="duck duck5">
-        <img src="/Source-files/SVG/duck.svg" width="70" />
+      <div class="row-ducks">
+        <div class="duck">
+          <img src="/Source-files/SVG/duck.svg" width="70" />
+        </div>
+        <div class="duck duck2">
+          <img src="/Source-files/SVG/duck.svg" width="70" />
+        </div>
+        <div class="duck duck3">
+          <img src="/Source-files/SVG/duck.svg" width="70" />
+        </div>
+        <div class="duck duck4">
+          <img src="/Source-files/SVG/duck.svg" width="70" />
+        </div>
+        <div class="duck duck5">
+          <img src="/Source-files/SVG/duck.svg" width="70" />
+        </div>
       </div>
     </div>
   </section>
-  <section class="infogame">
-    <label class="time bold-text2">Tiempo:</label>
-    <label class="score bold-text2">Puntuación</label>
-  </section>
-  <section class="control">
-    <button id="shoot-button" class="shoot bold-text1">Disparar</button>
-    <!-- <button id="play-button" class="start bold-text1">Iniciar</button> -->
-    <audio id="autoplay-audio" loop>
-      <source src="./audio-game/audio-game.mp3" type="audio/mpeg" />
-    </audio>
+  <section class="bottom-section">
+    <div class="infogame">
+      <label class="time bold-text2">Tiempo:</label>
+      <label class="score bold-text2">Puntuación</label>
+    </div>
+    <div class="control">
+      <button id="shoot-button" class="shoot bold-text1">Disparar</button>
+      <audio id="autoplay-audio" loop>
+        <source src="./audio-game/audio-game.mp3" type="audio/mpeg" />
+      </audio>
+    </div>
   </section>
   <script src="audio-game.js"></script>
 </body>
