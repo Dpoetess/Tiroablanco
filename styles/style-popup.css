@@ -1,3 +1,5 @@
+@import "/styles/common-styles.css";
+
 .popup-overlay {
     display: none;
     position: fixed;
@@ -8,15 +10,20 @@
     background:rgba(0, 0, 0, 0.5);
 }
 .popup {
-    position:absolute;
+    /*position:absolute;
     top: 10%;
-    left: 10%;
-    height: 60%;
+    bottom: 10%;
+    left: 10%;*/
+    justify-content: center;
+    align-content: center;
+    width: 90%;
+    height: 80%;
     transform: translate(-50% -50%);
-    background: #fff;
+    background: var(--oldRed);
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 35px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border: 10px solid var(--yellow);
 }
 .popup-content {
     text-align: center;
@@ -28,3 +35,11 @@
     cursor: pointer;
     color: #333;
 }
+
+.popup-text {
+    background-image: url(/Source-files/SVG/rules-area.svg);
+    background-repeat: no-repeat;
+}
+
+/**/
+/**/
