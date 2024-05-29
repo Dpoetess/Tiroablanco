@@ -6,7 +6,6 @@ startGameButton.addEventListener("click", startGame)
 
 function saveName (){
     localStorage.setItem("name", input.value);
-    console.log("name")
 }
 
 function openGame() {
