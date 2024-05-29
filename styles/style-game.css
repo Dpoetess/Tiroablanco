@@ -71,13 +71,21 @@ body {
   width: 305px;
   justify-content: center;
   align-items: center;
-}
+} 
 
+.target {
+  position: fixed;
+  display:flex;
+  justify-content: center;
+  translate:179px 0;
+  z-index: 1;
+}
 .duck {
   position: relative;
   translate: 0 0;
   animation: mover 4s infinite;
   animation-timing-function: linear;
+
 }
 .duck2 {
   animation-delay: 0.5s;
