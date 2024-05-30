@@ -43,42 +43,53 @@ body {
   border-radius: 50%;
 }
 
+.gamezone {
+  margin-top: 20px;
+  width: 100%
+}
+
 .frame {
   height: 378px;
-  width: auto;
+  width: 100%;
   background: url(/Source-files/frame-background.png) center no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.gamezone {
-  margin-top: 20px;
-}
+
 
 .row-ducks {
   display: flex;
-  overflow: hidden;
-  width: 305px;
+  width: 370px;
+  height: 40px;
   justify-content: center;
   align-items: center;
+  z-index: 1;
 } 
 
 .target {
-  position: static;
-  display:flex;
-  align-items: center;
-  justify-content: center;
-  transform: translateX(145px);
+  position: absolute;
+  z-index: 3;
+  
 }
-.duck {
+
+.ducks {
+  width: 308px;
+  margin-left: 8px;
+  z-index: 0;
+  position: absolute;
+  overflow: hidden;
+}
+
+.duck1 {
   position: relative;
   translate: 0 0;
   animation: mover 4s infinite;
   animation-timing-function: linear;
 
 }
-.duck2 {
+/* .duck2 {
   animation-delay: 0.5s;
 }
 .duck3 {
@@ -89,9 +100,11 @@ body {
 }
 .duck5 {
   animation-delay: 2s;
-}
+} */
   
-.vertical-stripes { background: repeating-linear-gradient( 90deg, var(--lightYellow), var(--lightYellow) 30px, #eb7e83a1 30px, #eb7e83a1 60px) }
+.vertical-stripes { 
+  
+  background: repeating-linear-gradient( 90deg, var(--lightYellow), var(--lightYellow) 30px, #eb7e83a1 30px, #eb7e83a1 60px) }
 
 .infogame {
   display: flex;
@@ -132,9 +145,9 @@ label {
 
 @keyframes mover {
   from {
-    transform: translateX(400px);
+    transform: translateX(320px);
   }
   to {
-    transform: translateX(-200px);
+    transform: translateX(-80px);
   }
 }
