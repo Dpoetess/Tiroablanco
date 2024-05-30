@@ -1,5 +1,6 @@
-function shootduck() {
-    let deadduck = document.getElementsByClassName("duck")
-    deadduck.src = "/SVG/red-duck.svg";
+function shootduck(duck) {
+    duck.querySelector('img').src = "Source-files\SVG\red-duck.svg";
+    //hitSound.play();
+    //score += 5;
+    //finalScore.textContent = score;
 }
-console.log(shootduck)
