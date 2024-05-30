@@ -1,13 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
 
 const popupOverlay = document.getElementById('popupOverlay');
+const playerNameSaved = document.getElementById('playerName');
 const finalScore = document.querySelector('score');
 const restartButton = document.querySelector('.popup .close[onclick="restartGame()"]');
 const quitButton = document.querySelector('.popup .close');
 const nextLevelButton = document.querySelector('popup .close:nth-child(3)');
 
+//retrieve player name from local storage
+const playerName = localStorage.getItem("name") || "Name";
+
 function openPopup() {
-    popupOverlay.style.display = 'block';
+    popupOverlay.style.display = 'flex';
+    playerNameSaved.textContent = playerName;
     finalScore.textContent = `${score} PUNTOS`;
 }
 
