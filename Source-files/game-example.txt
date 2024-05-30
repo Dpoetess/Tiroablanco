@@ -1,0 +1,115 @@
+let score = 0;
+const numDucks = 5; // Number of ducks
+const duckSpeed = 2; // Speed of ducks
+
+const gameContainer = document.querySelector(".game-container");
+const shootButton = document.getElementById("shootButton");
+const scoreDisplay = document.getElementById("score");
+
+// Create ducks and append to the game container
+for (let i = 0; i < numDucks; i++) {
+  const duck = document.createElement("div");
+  duck.className = "duck";
+  duck.style.left = ${-Math.random() * 600}px;
+  gameContainer.appendChild(duck);
+}
+
+// Function to move the ducks
+function moveDucks() {
+  const ducks = document.querySelectorAll(".duck");
+  ducks.forEach((duck) => {
+    let duckPosition = parseFloat(duck.style.left);
+    duckPosition += duckSpeed;
+    if (duckPosition > 600) {
+      duckPosition = -50; // Reset position to start from left
+    }
+    duck.style.left = ${duckPosition}px;
+  });
+}
+
+// Function to shoot the ducks
+function shootDuck() {
+  const ducks = document.querySelectorAll(".duck");
+  const spotlightLeft = (600 - 60) / 2;
+  ducks.forEach((duck) => {
+    const duckPosition = parseFloat(duck.style.left);
+    if (duckPosition >= spotlightLeft && duckPosition <= spotlightLeft + 60) {
+      score++;
+      scoreDisplay.textContent = "Score: " + score;
+      // Optionally reset the duck's position after a hit
+      duck.style.left = ${-50}px;
+    }
+  });
+}
+
+// Set an interval to move the ducks
+setInterval(moveDucks, 20);
+
+// Add event listener to the shoot button
+shootButton.addEventListener("click", shootDuck);
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Duck Shooter Game</title>
+    <link rel="stylesheet" href="ducks.css" />
+  </head>
+  <body>
+    <div class="game-container">
+      <div class="spotlight"></div>
+      <!-- Ducks will be dynamically added here -->
+    </div>
+    <button id="shootButton">Shoot</button>
+    <p id="score">Score: 0</p>
+
+    <script src="ducks.js"></script>
+  </body>
+</html>
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #e0f7fa;
+}
+
+.game-container {
+  position: relative;
+  width: 600px;
+  height: 100px;
+  border: 2px solid #000;
+  background-color: #fff;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.duck {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-color: yellow;
+  border-radius: 50%;
+  top: 25px;
+}
+
+.spotlight {
+  position: absolute;
+  width: 60px;
+  height: 100%;
+  background-color: rgba(0, 255, 0, 0.3);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#score {
+  font-size: 20px;
+}

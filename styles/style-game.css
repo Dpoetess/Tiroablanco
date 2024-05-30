@@ -59,7 +59,7 @@ body {
 
 
 
-.row-ducks {
+.scope {
   display: flex;
   width: 370px;
   height: 40px;
@@ -69,6 +69,7 @@ body {
 } 
 
 .target {
+  margin-top: 22px;
   position: absolute;
   z-index: 3;
   
@@ -80,12 +81,15 @@ body {
   z-index: 0;
   position: absolute;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
 }
 
 .duck1 {
+  width: 85px;
   position: relative;
   translate: 0 0;
-  animation: mover 4s infinite;
+  animation: move 4s infinite;
   animation-timing-function: linear;
 
 }
@@ -143,7 +147,7 @@ label {
   justify-content: center;
 }
 
-@keyframes mover {
+@keyframes move {
   from {
     transform: translateX(320px);
   }
