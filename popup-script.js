@@ -7,53 +7,151 @@ const finalScore = document.querySelector('score');
 const restartButton = document.querySelector('.popup .close[onclick="restartGame()"]');
 const quitButton = document.getElementById('quit');
 const nextLevelButton = document.getElementById('nextLevel');
-// variables for confetti
-const confettiCvs = document.getElementById("confettiCanvas");
-const confettiCtx = confettiCvs.getContext("2d");
-let container, confettiElements = [], clickPosition;
-const rand = (min, max) => Math.random() * (max - min) + min; // helper
-    // params to play with
-const confettiParams = {
-    // number of confetti per "explosion"
-    number: 300,
-    // min and max size for each rectangle
-    size: { x: [2, 12], y: [10, 18] },
-    // power of explosion
-    initSpeed: 25,
-    // defines how fast particles go down after blast-off
-    gravity: 0.55,
-    // how wide is explosion
-    drag: 0.18,
-    // how slow particles are falling
-    terminalVelocity: 5,
-    // how fast particles are rotating around themselves
-    flipSpeed: 0.017,
-};
-const confettiColors = [
-    { front : '#3B870A', back: '#235106' },
-    { front : '#B96300', back: '#6f3b00' },
-    { front : '#E23D34', back: '#88251f' },
-    { front : '#CD3168', back: '#7b1d3e' },
-    { front : '#664E8B', back: '#3d2f53' },
-    { front : '#394F78', back: '#222f48' },
-    { front : '#008A8A', back: '#005353' },
-];
+
 
 //retrieve player name from local storage
-const playerName = localStorage.getItem("name") || "Name";
-
-setupCanvas();
-updateConfetti();
+const playerName = localStorage.getItem("name") || "JUGADOR!";
 
 function openPopup() {
     popupOverlay.style.display = 'flex';
     playerNameSaved.textContent = playerName;
-    finalScore.textContent = `${score} PUNTOS`;
-    addConfetti();
+    //finalScore.textContent = `${score} PUNTOS`;
+    initConfetti();
+    render();
 }
 
 //trigger popup to open - temporary:to see and work on popup 
 setTimeout(openPopup, 5000);
+
+
+// ------------ confetti ----------------
+//-----------Var Inits--------------
+canvas = document.getElementById("canvas");
+ctx = canvas.getContext("2d");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+cx = ctx.canvas.width / 2;
+cy = ctx.canvas.height / 2;
+
+let confetti = [];
+const confettiCount = 300;
+const gravity = 0.5;
+const terminalVelocity = 5;
+const drag = 0.075;
+const colors = [
+  { front: "red", back: "darkred" },
+  { front: "green", back: "darkgreen" },
+  { front: "blue", back: "darkblue" },
+  { front: "yellow", back: "darkyellow" },
+  { front: "orange", back: "darkorange" },
+  { front: "pink", back: "darkpink" },
+  { front: "purple", back: "darkpurple" },
+  { front: "turquoise", back: "darkturquoise" }
+];
+
+//-----------Functions--------------
+resizeCanvas = () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  cx = ctx.canvas.width / 2;
+  cy = ctx.canvas.height / 2;
+};
+
+randomRange = (min, max) => Math.random() * (max - min) + min;
+
+initConfetti = () => {
+  for (let i = 0; i < confettiCount; i++) {
+    confetti.push({
+      color: colors[Math.floor(randomRange(0, colors.length))],
+      dimensions: {
+        x: randomRange(10, 20),
+        y: randomRange(10, 30)
+      },
+
+      position: {
+        x: randomRange(0, canvas.width),
+        y: canvas.height - 1
+      },
+
+      rotation: randomRange(0, 2 * Math.PI),
+      scale: {
+        x: 1,
+        y: 1
+      },
+
+      velocity: {
+        x: randomRange(-25, 25),
+        y: randomRange(0, -50)
+      }
+    });
+  }
+};
+
+//---------Render-----------
+render = () => {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  confetti.forEach((confetto, index) => {
+    let width = confetto.dimensions.x * confetto.scale.x;
+    let height = confetto.dimensions.y * confetto.scale.y;
+
+    // Move canvas to position and rotate
+    ctx.translate(confetto.position.x, confetto.position.y);
+    ctx.rotate(confetto.rotation);
+
+    // Apply forces to velocity
+    confetto.velocity.x -= confetto.velocity.x * drag;
+    confetto.velocity.y = Math.min(
+      confetto.velocity.y + gravity,
+      terminalVelocity
+    );
+    confetto.velocity.x += Math.random() > 0.5 ? Math.random() : -Math.random();
+
+    // Set position
+    confetto.position.x += confetto.velocity.x;
+    confetto.position.y += confetto.velocity.y;
+
+    // Delete confetti when out of frame
+    if (confetto.position.y >= canvas.height) confetti.splice(index, 1);
+
+    // Loop confetto x position
+    if (confetto.position.x > canvas.width) confetto.position.x = 0;
+    if (confetto.position.x < 0) confetto.position.x = canvas.width;
+
+    // Spin confetto by scaling y
+    confetto.scale.y = Math.cos(confetto.position.y * 0.1);
+    ctx.fillStyle =
+      confetto.scale.y > 0 ? confetto.color.front : confetto.color.back;
+
+    // Draw confetti
+    ctx.fillRect(-width / 2, -height / 2, width, height);
+
+    // Reset transform matrix
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+  });
+
+  // Fire off another round of confetti
+  if (confetti.length <= 10) initConfetti();
+
+  window.requestAnimationFrame(render);
+};
+
+//---------Execution--------
+
+
+//----------Resize----------
+window.addEventListener("resize", function () {
+  resizeCanvas();
+});
+
+//------------Click------------
+window.addEventListener("click", function () {
+  initConfetti();
+});
+
+
+
+
 
 // ------ WORK IN PROGRESS ------ 
 // viene de finalización del temporizador
@@ -70,113 +168,11 @@ function restartGame(){
     //restart();
 }
 
-// ----- CONFETTI ----------
-// confetti constructor
-function Conf () {
-    this.randomModifier = rand(-1, 1);
-    this.colorPair = confettiColors[Math.floor(rand(0, confettiColors.length))];
-    this.dimensions = {
-        x: rand(confettiParams.size.x[0], confettiParams.size.x[1]),
-        y: rand(confettiParams.size.y[0], confettiParams.size.y[1]),
-    }
-    this.position = {
-        x: clickPosition[0],
-        y: clickPosition[1]
-    };
-    this.rotation = rand(0, 2* Math.PI);
-    this.scale = { x: 1, y: 1 };
-    this.velocity = {
-        x: rand(-confettiParams.initSpeed, confettiParams.initSpeed) * 0.4,
-        y: rand(-confettiParams.initSpeed, confettiParams.initSpeed)
-    };
-    this.flipSpeed = rand(0.2, 1.5) * confettiParams.flipspeed;
-
-    if (this.position.y <= container.h) {
-        this.velocity.y = -Math.abs(this.velocity.y);
-    }
-
-    this.terminalVelocity = rand(1, 1.5) * confettiParams.terminalVelocity;
-
-    this.update = function () {
-        this.velocity.x *= 0.98;
-        this.position.x += this.velocity.x;
-        this.velocity.y += (this.randomModifier * confettiParams.drag);
-        this.velocity.y = Math.min(this.velocity.y, this.terminalVelocity);
-        this.position.y += this.velocity.y;
-        this.scale.y = Math.cos((this.position.y + this.randomModifier) * this.flipSpeed);
-        this.color = this.scale.y > 0 ? this.colorPair.front : this.colorPair.back;
-    }
-}
-
-function updateConfetti () {
-    confettiCtx.clearRect(0, 0, container.w, container.h);
-    confettiElements.forEach((c) => {
-        c.update();
-        confettiCtx.translate(c.position.x, c.position.y);
-        confettiCtx.rotate(c.rotation);
-        const width = (c.dimensions.x * c.scale.x);
-        const height = (c.dimensions.y * c.scale.y);
-        confettiCtx.fillStyle = c.color;
-        confettiCtx.fillRect (-0.5 * width, -0.5 * height, width, height);
-        confettiCtx.setTransform(1, 0, 0, 1, 0, 0)
-    });
-    confettiElements.forEach((c, idx) => {
-        if (c.position.y > container.h ||
-            c.position.x < -0.5 * container.x ||
-            c.position.x > 1.5 * container.x) {
-                confettiElements.splice(idx, 1)
-            }
-    });
-    window.requestAnimationFrame(updateConfetti);
-}
-
-function setupCanvas() {
-    container = {
-        w: confettiCvs.clientWidth,
-        h: confettiCvs.clientHeight
-    };
-    confettiCvs.width = container.w;
-    confettiColors.height = container.h;
-}
-
-function addConfetti(e) {
-    const canvasBox = confettiCvs.getBoundingClientRect();
-    if (e) {
-        clickPosition = [
-            e.clientX - canvasBox.left,
-            e.clientY - canvasBox.top
-        ];
-    } else {
-        clickPosition = [
-            canvasBox.width * Math.random(),
-            canvasBox.height * Math.random()
-        ];
-    }
-    for (let i = 0; i < confettiParams.number; i++) {
-        confettiElements.push(new Conf())
-    }
-}
-
-function hideConfetti() {
-    confettiElements = [];
-    window.cancelAnimationFrame(updateConfetti)
-}
-
-confettiLoop();
-function confettiLoop() {
-    addConfetti();
-    setTimeout(confettiLoop, 700 + Math.random() * 1700);
-}
-
 
 //Event listeners
 restartButton.addEventListener('click', restartGame);
 quitButton.addEventListener('click', () => window.location.href = 'index.html');
 nextLevelButton.addEventListener('click', () => alert('Next level feature coming soon!'));
   //const timerId = setInterval(countdown, 1000);
-window.addEventListener('resize', () => {
-    setupCanvas();
-    hideConfetti();
-});
 
 });
