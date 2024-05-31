@@ -1,21 +1,32 @@
 console.log("hola");
 
-const shootButton = document.getElementById("shoot-button")
+const shootButton = document.getElementById("shoot-button");
+shootButton.addEventListener("click", hitDuck);
 
-shootButton.addEventListener("click", hitDuck)
+
 
 function findCenter (element) {
     const rect = element.getBoundingClientRect(); 
     const centerX = Math.round(rect.left + rect.width / 2); 
     return centerX;  
 }
-
+ //Add the score function template
+let score = 0;
+function addScore () {
+    const scoreArea = document.getElementById("score");
+    
+    score = score + 5;
+    scoreArea.innerHTML = `PUNTOS: <br> ${score}`;
+    console.log(score);
+}
+// es que el let score = 0 dentro de la funcion esta reseteando el score?
 //AÑADIR mas patos
 
 function hitDuck () {
     console.log("check")
     const duck = document.getElementById("duck");
     const target = document.getElementById("target");
+    const yellowDuck = document.getElementById("yellowDuck")
 
     const duckCenter = findCenter(duck); 
     const targetCenter = findCenter(target);
@@ -28,8 +39,19 @@ function hitDuck () {
     if (duckCenter > pointA && duckCenter < pointB) {
         console.log("shooted")
 
-//Aqui van funciones  relacionadas con ACERTAR
-        
+
+    //Count the score
+    addScore();
+
+    
+
+    
+
+    //Change the color of the shooted duck
+    
+    yellowDuck.src = "Source-files/SVG/red-duck.svg";
+
         }
 } 
+
 
