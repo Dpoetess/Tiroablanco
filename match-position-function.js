@@ -11,16 +11,21 @@ function findCenter (element) {
     return centerX;  
 }
 
-//Add function playCuac 
+//Add function playCuac when assert
 shootButton.addEventListener("click", playCuac);        
 function playCuac () {
-    const cuac = document.getElementById("sounDuck"); // audio de cuac en html con id pato
+    const cuac = document.getElementById("sounDuck"); 
     cuac.play();
+    //playCuac(sound);     
+}
 
-    playCuac(sound);     
-        }
-
-
+//Add function playShoot for Sound
+shootButton.addEventListener("click", playShoot);        
+function playShoot () {
+    const gunShoot = document.getElementById("soundShoot"); 
+    gunShoot.play();
+    //playShoot(sound);     
+}        
 
  //Add the score function template
 let score = 0;
@@ -49,17 +54,14 @@ function hitDuck () {
 
     if (duckCenter > pointA && duckCenter < pointB) {
         console.log("shooted")
+        playCuac();
 
         //Change the color of the shooted duck
         
         yellowDuck.src = "Source-files/SVG/red-duck.svg";
         addScore();
 
-        
-
-    
-
         }
-} 
 
-
+}
+export {shootButton};
