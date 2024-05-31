@@ -1,20 +1,41 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
+
     const popupOverlay = document.getElementById('popupOverlay');
-    const closePopup = document.getElementsByClassName('close');
-    //funciton to open popup
+    const playerNameSaved = document.getElementById('playerName');
+    const finalScore = document.querySelector('score');
+    const restartButton = document.querySelector('.popup .close[onclick="restartGame()"]');
+    const quitButton = document.querySelector('.popup .close');
+    const nextLevelButton = document.querySelector('popup .close:nth-child(3)');
+    
+    //retrieve player name from local storage
+    const playerName = localStorage.getItem("name") || "Name";
+    
     function openPopup() {
-        popupOverlay.style.display = 'block';
+        popupOverlay.style.display = 'flex';
+        playerNameSaved.textContent = playerName;
+        finalScore.textContent = `${score} PUNTOS`;
     }
-    //function to close popup
-    function closePopupFunc() {
-        popupOverlay.style.display = 'none';
-    }
-
-    //Event listeners
-    //trigger popup to open
+    
+    //trigger popup to open - temporary:to see and work on popup 
     setTimeout(openPopup, 5000);
-
-    //close popup when button is clicked
-    closePopup.addEventListener('click', closePopupFunc);
-
-})
+    
+    // ------ WORK IN PROGRESS ------ 
+    // viene de finalización del temporizador
+    function endGame() {
+        popupOverlay.style.display = 'block';
+        finalScore.textContent = `${score} PUNTOS`;
+    }
+    
+    // ----- WORK IN PROGRESS -----
+    function restartGame(){
+        popupOverlay.style.display = 'none';
+     // reset puntuación y temporizador
+    }
+    
+    //Event listeners
+    restartButton.addEventListener('click', restartGame);
+    quitButton.addEventListener('click', () => window.location.href = 'index.html');
+    nextLevelButton.addEventListener('click', () => alert('Next level feature coming soon!'));
+      //const timerId = setInterval(countdown, 1000);
+    
+    });

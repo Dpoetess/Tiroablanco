@@ -3,7 +3,6 @@
 let shoot = document.getElementById("shoot-button")
 shoot.addEventListener("click", cargarTiempo);
 let time = 0;
-cargarTiempo ();
 
 //definir y ejecutar los segundos
 function cargarTiempo() {

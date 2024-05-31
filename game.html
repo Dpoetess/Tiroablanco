@@ -24,7 +24,10 @@
   <section class="gamezone">
     <div class="frame">
       <div class="scope" id="scope">
-          <img class="target" src="/Source-files/SVG/target.svg" width="40" alt="scope image" id="target">
+        <img class="target" src="/Source-files/SVG/target.svg" width="40" alt="scope image" id="target">
+        <audio id="sounDuck" loop>
+        <source src="./audio-game/audio-duck.mp3" type="audio/mpeg" />
+        </audio>
       </div>
       <div class="ducks">
         <div class="duck1" id="duck">
@@ -48,7 +51,7 @@
   <section class="vertical-stripes ">
     <div class="infogame">
       <label class="bold-text" id="time" >Tiempo: "textTime"</label>
-      <label class="score bold-text" id="score">Puntuación</label>
+      <label class="score bold-text" id="score">Puntos:</label>
     </div>
     <div class="control">
       <button id="shoot-button" class="shoot bold-text1">Disparar</button>
@@ -74,6 +77,7 @@
   <script src="audio-game.js"></script>
   <script src="time.js"></script>
   <script src="match-position-function.js"></script>
+  <!-- <script src="/shootButton.js"></script> -->
   <!-- <script src="popup-script.js"></script> -->
 </body>
 
