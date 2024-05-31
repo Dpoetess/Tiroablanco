@@ -1,10 +1,6 @@
 //EXPORTAR de los ficheros correspondientes e IMPORTAR las funciones de sonido, hitDuck, temporizador
-import hitDuck from "match-position-function";
-
-import { hitDuck } from "../match-position-function.js";
-import { timer } from "../time.js";
-import { playCuac } from "../match-position-function.js";
-import { playShoot } from "../match-position-function.js";
+import { hitDuck, playCuac, playShoot } from "./match-position-function.js";
+import timer from "./time.js";
 
 const shootButton = document.getElementById("shoot-button");
 shootButton.addEventListener("click", shootButton);

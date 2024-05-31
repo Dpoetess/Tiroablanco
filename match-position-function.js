@@ -63,5 +63,5 @@ function hitDuck () {
 
         }
 
-}
-export {playCuac, playShoot, addScore, hitDuck};
+};
+export { playCuac, playShoot, addScore, hitDuck };
