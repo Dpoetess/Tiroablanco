@@ -57,8 +57,6 @@ body {
   align-items: center;
 }
 
-
-
 .scope {
   display: flex;
   width: 370px;
@@ -69,7 +67,7 @@ body {
 } 
 
 .target {
-  margin-top: 22px;
+  margin-top: 20px;
   position: absolute;
   z-index: 3;
   
@@ -85,26 +83,47 @@ body {
   justify-content: center;
 }
 
-.duck1 {
-  width: 85px;
+.duck {
+  width: 75px;
   position: relative;
-  translate: 0 0;
-  animation: move 4s infinite;
+  /* margin-right: 30px; */
+  animation: move 6s infinite;
   animation-timing-function: linear;
-
 }
-/* .duck2 {
+
+@keyframes move {
+  from {
+    transform: translateX(350px);
+  }
+  to {
+    transform: translateX(-300px);
+  }
+}
+
+
+.duck:nth-child(1) {
   animation-delay: 0.5s;
 }
-.duck3 {
+
+.duck:nth-child(2) {
   animation-delay: 1s;
 }
-.duck4 {
+
+.duck:nth-child(3) {
   animation-delay: 1.5s;
 }
-.duck5 {
+
+.duck:nth-child(4) {
   animation-delay: 2s;
-} */
+}
+
+.duck:nth-child(5) {
+  animation-delay: 2.5s;
+}
+
+.duck img {
+  width: 75px;
+}
   
 .vertical-stripes { 
   
@@ -147,11 +166,3 @@ label {
   justify-content: center;
 }
 
-@keyframes move {
-  from {
-    transform: translateX(320px);
-  }
-  to {
-    transform: translateX(-80px);
-  }
-}
