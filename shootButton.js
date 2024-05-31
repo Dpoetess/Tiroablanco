@@ -2,7 +2,7 @@
 import hitDuck from "match-position-function";
 
 import { hitDuck } from "../match-position-function.js";
-import { cargarTiempo } from "../time.js";
+import { timer } from "../time.js";
 import { playCuac } from "../match-position-function.js";
 import { playShoot } from "../match-position-function.js";
 
@@ -12,7 +12,7 @@ shootButton.addEventListener("click", shootButton);
 function shootButton () {
     hitDuck();
 
-    cargarTiempo();
+    timer();
 
     //Add function playCuac when assert
     shootButton.addEventListener("click", playCuac);        

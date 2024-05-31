@@ -64,4 +64,4 @@ function hitDuck () {
         }
 
 }
-export {shootButton};
+export {playCuac, playShoot, addScore, hitDuck};
