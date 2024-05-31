@@ -36,6 +36,6 @@ function restartGame(){
 restartButton.addEventListener('click', restartGame);
 quitButton.addEventListener('click', () => window.location.href = 'index.html');
 nextLevelButton.addEventListener('click', () => alert('Next level feature coming soon!'));
-  const timerId = setInterval(countdown, 1000);
+  //const timerId = setInterval(countdown, 1000);
 
 });
