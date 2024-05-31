@@ -1,11 +1,12 @@
+
 document.addEventListener('DOMContentLoaded', () => {
 
 const popupOverlay = document.getElementById('popupOverlay');
 const playerNameSaved = document.getElementById('playerName');
 const finalScore = document.querySelector('score');
 const restartButton = document.querySelector('.popup .close[onclick="restartGame()"]');
-const quitButton = document.querySelector('.popup .close');
-const nextLevelButton = document.querySelector('popup .close:nth-child(3)');
+const quitButton = document.getElementById('quit'); // Select the first close button
+const nextLevelButton = document.getElementById('nextLevel');
 
 //retrieve player name from local storage
 const playerName = localStorage.getItem("name") || "Name";
@@ -14,6 +15,7 @@ function openPopup() {
     popupOverlay.style.display = 'flex';
     playerNameSaved.textContent = playerName;
     finalScore.textContent = `${score} PUNTOS`;
+    addConfetti();
 }
 
 //trigger popup to open - temporary:to see and work on popup 
@@ -29,7 +31,9 @@ function endGame() {
 // ----- WORK IN PROGRESS -----
 function restartGame(){
     popupOverlay.style.display = 'none';
- // reset puntuación y temporizador
+    score = 0;
+    time = 0;
+    //restart();
 }
 
 //Event listeners
