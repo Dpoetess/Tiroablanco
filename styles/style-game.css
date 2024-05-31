@@ -7,15 +7,6 @@ html {
   height: auto;
 }
 
-.bold-text1 {
-  font-family: "Bungee Spice";
-  font-palette: --ButtonColor;
-}
-.bold-text2 {
-  font-family: "Bungee Spice";
-  font-palette: --TextColor;
-}
-
 body {
   /* height: 100vh; */
   max-width: 1280px;
@@ -52,47 +43,91 @@ body {
   border-radius: 50%;
 }
 
+.gamezone {
+  margin-top: 20px;
+  width: 100%
+}
+
 .frame {
   height: 378px;
-  width: auto;
+  width: 100%;
   background: url(/Source-files/frame-background.png) center no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.gamezone {
-  margin-top: 20px;
-}
-
-.row-ducks {
+.scope {
   display: flex;
-  overflow: hidden;
-  width: 305px;
+  width: 370px;
+  height: 40px;
   justify-content: center;
   align-items: center;
+  z-index: 1;
+} 
+
+.target {
+  margin-top: 20px;
+  position: absolute;
+  z-index: 3;
+  
+}
+
+.ducks {
+  width: 308px;
+  margin-left: 8px;
+  z-index: 0;
+  position: absolute;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
 }
 
 .duck {
+  width: 75px;
   position: relative;
-  translate: 0 0;
-  animation: mover 4s infinite;
+  /* margin-right: 30px; */
+  animation: move 6s infinite;
   animation-timing-function: linear;
 }
-.duck2 {
+
+@keyframes move {
+  from {
+    transform: translateX(350px);
+  }
+  to {
+    transform: translateX(-300px);
+  }
+}
+
+
+.duck:nth-child(1) {
   animation-delay: 0.5s;
 }
-.duck3 {
+
+.duck:nth-child(2) {
   animation-delay: 1s;
 }
-.duck4 {
+
+.duck:nth-child(3) {
   animation-delay: 1.5s;
 }
-.duck5 {
+
+.duck:nth-child(4) {
   animation-delay: 2s;
 }
+
+.duck:nth-child(5) {
+  animation-delay: 2.5s;
+}
+
+.duck img {
+  width: 75px;
+}
   
-.vertical-stripes { background: repeating-linear-gradient( 90deg, var(--lightYellow), var(--lightYellow) 30px, #eb7e83a1 30px, #eb7e83a1 60px) }
+.vertical-stripes { 
+  
+  background: repeating-linear-gradient( 90deg, var(--lightYellow), var(--lightYellow) 30px, #eb7e83a1 30px, #eb7e83a1 60px) }
 
 .infogame {
   display: flex;
@@ -129,13 +164,4 @@ label {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-@keyframes mover {
-  from {
-    transform: translateX(400px);
-  }
-  to {
-    transform: translateX(-200px);
-  }
 }

@@ -9,7 +9,7 @@ function saveName (){
 }
 
 function openGame() {
-    window.location.assign("juego.html")
+    window.location.assign("game.html")
 } 
 
 function startGame () {    
