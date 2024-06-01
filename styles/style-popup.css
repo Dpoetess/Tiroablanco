@@ -1,48 +1,76 @@
 @import "/styles/common-styles.css";
 @import "/styles/style-game.css";
 
-#popupOverlay {
+.popup-overlay {
     display: none;
     position: fixed;
     top: 0;
     left: 0;
-    width: 90%;
-    height: 80%;
-/*     background:rgba(0, 0, 0, 0.5); */
-    z-index: 1000;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(2px);
 }
 
-#popup {
-    /* position:absolute;
-    top: 10%;
-    bottom: 10%; */
-    /*left: 10%;*/
+.popup {
+    width: 348px;
+    height: 647px;
+    position:absolute;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    width: 90%;
-    max-width: 1280px;
-    height: auto;
-    max-height: 80%;
+    top: 10%;
+    left: 10%;
+    bottom: 60%;
+    /*height: 60%;*/
     transform: translate(-50% -50%);
-    background: var(--oldRed);
+    background-color: var(--oldRed);
+    border: solid #FDEEBD 10px;
+    border-radius: 55px;
     padding: 20px;
-    border-radius: 35px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    border: 10px solid var(--yellow);
-    text-align: center;
-    overflow-y: auto;
 }
 
 .popup-content {
-    width: 100%;
+    position: absolute;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items:center;
     text-align: center;
 }
-
-.popup-text {
+.congrats {
+    width: 310px;
+    height: 252px;
+    background-image: url(/Source-files/SVG/rules-area.svg);
+    background-size: 100%;
+    background-position-y: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+h2{
+    margin: 0px;
+}
+.p {
+    margin: 0;
+    font-size: 22px;
+}
+h3 {
+    margin: 0;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+span {
+    font-size:x-large;
+}
+a{
+    text-decoration: none;
+}
+/* .popup-text {
     width: 100%;
     background-image: url(/Source-files/SVG/rules-area.svg);
     background-repeat: no-repeat;
@@ -62,7 +90,9 @@
 .popup-buttons .button {
     width: 70%;
     margin: 5px 0;
-}
+} */
+
+
 .popup-conf {
     margin: 0 auto;
     top: 0;
@@ -70,7 +100,6 @@
     width: 100%;
     height: 100%;
     background-repeat: repeat-x;
-
     z-index: 1000;
     position: absolute; /* Position the confetti absolutely within the popup */
     pointer-events: none; 
@@ -78,6 +107,10 @@
   
   .confetti {
     display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     margin: 0 auto;
     border: 1px solid #ddd;
     user-select: none;

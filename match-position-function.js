@@ -2,10 +2,10 @@ console.log("hola");
 
 const shootButton = document.getElementById("shoot-button");
 shootButton.addEventListener("click", hitDuck);
-
+let duckDiv = document.getElementById('ducks').getElementsByTagName('div');
+const target = document.getElementById("target");
 
 //Count the score  
-
 let score = 0;
 function addScore () {
     const scoreArea = document.getElementById("score");
@@ -23,10 +23,6 @@ function findCenter (element) {
 //SHOOT the duck
 
 function hitDuck () {
-    console.log("check")
-
-    let duckDiv = document.getElementById('ducks').getElementsByTagName('div');
-    const target = document.getElementById("target");
     
     for (let i = 0; i< duckDiv.length; i++) {
         
@@ -36,25 +32,53 @@ function hitDuck () {
         const targetCenter = findCenter(target);
         const pointA = targetCenter - 20;
         const pointB = targetCenter + 20;
-        console.log(duckImg.src)
 
         if (duckCenter > pointA && duckCenter < pointB ) {
-            console.log("shooted")
-
-            if (duckImg.src != "http://127.0.0.1:5504/Source-files/SVG/red-duck.svg") {
-                //Sum the score
+            
+            //Sum the score
+            if (duckImg.src != "https://i.ibb.co/RNtpttV/red-duck.png") {
                 addScore();
             }
             
             //Change the color of the shooted duck
-            duckImg.src = "Source-files/SVG/red-duck.svg";
-
-            }
+            duckImg.src = "https://i.ibb.co/RNtpttV/red-duck.png";
+            }   
+        
     }
 } 
 
+//Resurrect shooted ducks
+function resurrectDuck () {
+
+    for (let i = 0; i< duckDiv.length; i++) {
+        
+        const duck = duckDiv[i];
+        const duckImg = duck.getElementsByTagName('img')[0];
+        const duckCenter = findCenter(duck); 
+        const targetCenter = findCenter(target);
+        const pointC = targetCenter + 30;
+
+        if (duckCenter > pointC) {
+            duckImg.src = "https://i.ibb.co/vq8JVgV/yellow-duck.png";    
+        } 
+}
+}
+
+function repeatResurrection () {
+    timer = setInterval(resurrectDuck, 350);
+}
+
+//Uncomment when stopResurrection is connected with Game Time
+//repeatResurrection();
 
 
+//ADD THIS FUNCTION TO THE END GAME FUNCTION
+/*
+function stopResurrection() {
+    clearInterval(timer);
+        }   */
+
+//CHECK AND LINK THIS FUNCTIONS
 /* //Add function playCuac 
 shootButton.addEventListener("click", playCuac);        
 function playCuac () {
@@ -66,9 +90,9 @@ function playCuac () {
  */
 
 
-//RESTART de Isa
+//RESTART from Isa
 /*function restartGame() {
-  score = 0;
-  time = 0;
-  restart();
+score = 0;
+time = 0;
+restart();
 } */
