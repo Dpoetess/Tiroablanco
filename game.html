@@ -69,15 +69,15 @@
           <h3><span>75</span>PUNTOS</h3>
         </div>
         <div class="popup-buttons">
-          <button id="restart" class="button close start bold-text1" onclick="restartGame()">REINICIAR</button>
+          <button id="restart" class="button close start bold-text1" onclick="window.location.href = 'game.html'">REINICIAR</button>
           <button id="quit" class="button close start bold-text1" onclick="window.location.href = 'index.html'">SALIR</button>
           <button id="nextLevel" class="button close start bold-text1">PROXIMO NIVEL</button>
         </div>
       </div>
       <div class="popup-conf">
         <canvas class="confetti" id="canvas"></canvas>
-        <audio id="applause">
-          <source src="./audio-game/applause.mp3" type="audio/mpeg" />
+        <audio id="applauseAudio">
+          <source src="audio-game\applause.mp3" type="audio/mpeg" muted>
         </audio>
       </div>
     </div>

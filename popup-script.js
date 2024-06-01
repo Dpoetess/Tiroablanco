@@ -3,11 +3,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const popupOverlay = document.getElementById('popupOverlay');
 const playerNameSaved = document.getElementById('playerName');
-const finalScore = document.querySelector('score');
-const restartButton = document.querySelector('.popup .close[onclick="restartGame()"]');
+const finalScore = document.querySelector('.score');
+const restartButton = document.getElementById('restart');
 const quitButton = document.getElementById('quit');
 const nextLevelButton = document.getElementById('nextLevel');
-
 
 //retrieve player name from local storage
 const playerName = localStorage.getItem("name") || "JUGADOR!";
@@ -15,10 +14,11 @@ const playerName = localStorage.getItem("name") || "JUGADOR!";
 function openPopup() {
     popupOverlay.style.display = 'flex';
     playerNameSaved.textContent = playerName;
-    //finalScore.textContent = `${score} PUNTOS`;
+    finalScore.textContent = `${score} PUNTOS`;
     initConfetti();
     render();
-}
+    playApplause();
+} 
 
 //trigger popup to open - temporary:to see and work on popup 
 setTimeout(openPopup, 5000);
@@ -150,12 +150,36 @@ window.addEventListener("click", function () {
 });
 
 
+function playApplause() {
+  applauseAudio.play().then(() => {
+      applauseAudio.muted = false;  // Unmute the audio after it starts playing
+  }).catch(error => {
+      console.log('Autoplay was prevented:', error);
+      // Fallback: Play audio on user interaction
+      document.addEventListener('click', (event) => {
+        if (!restartButton.contains(event.target) &&
+        !quitButton.contains(event.target) &&
+        !nextLevelButton.contains(event.target)) {
+        applauseAudio.muted = false;
+        applauseAudio.play();
+    }
+      }, { once: true });
+  });
+}
+
+
+//Event listeners
+restartButton.addEventListener('click', () => window.location.href = 'game.html');
+quitButton.addEventListener('click', () => window.location.href = 'index.html');
+nextLevelButton.addEventListener('click', () => alert('Proximamente!'));
+  //const timerId = setInterval(countdown, 1000)
+
 
 
 
 // ------ WORK IN PROGRESS ------ 
 // viene de finalización del temporizador
-function endGame() {
+/* function endGame() {
     popupOverlay.style.display = 'block';
     finalScore.textContent = `${score} PUNTOS`;
 }
@@ -167,12 +191,6 @@ function restartGame(){
     time = 0;
     //restart();
 }
-
-
-//Event listeners
-restartButton.addEventListener('click', restartGame);
-quitButton.addEventListener('click', () => window.location.href = 'index.html');
-nextLevelButton.addEventListener('click', () => alert('Next level feature coming soon!'));
-  //const timerId = setInterval(countdown, 1000);
+ */
 
 });
