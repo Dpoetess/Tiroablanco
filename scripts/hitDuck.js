@@ -1,7 +1,3 @@
-console.log("hola");
-
-/* const shootButton = document.getElementById("shoot-button");
-shootButton.addEventListener("click", hitDuck); */
 
 let duckDiv = document.getElementById('ducks').getElementsByTagName('div');
 const target = document.getElementById("target");
@@ -12,7 +8,6 @@ function addScore () {
     const scoreArea = document.getElementById("score");
     score = score + 5;
     scoreArea.innerHTML = `PUNTOS: <br> ${score}`;
-    console.log(score);
 }
 
 //Quack sound
@@ -22,6 +17,7 @@ function playCuac () {
     cuac.play(); 
         }
 
+//Gunshot sound
 function playGunshot () {
 
     const gunshot = document.getElementById("soundShoot"); 
@@ -29,6 +25,7 @@ function playGunshot () {
         gunshot.play(); 
             }
 
+//Find center of elements to match positions        
 function findCenter (element) {
     const rect = element.getBoundingClientRect(); 
     const centerX = Math.round(rect.left + rect.width / 2); 
@@ -36,7 +33,6 @@ function findCenter (element) {
 }
 
 //SHOOT the duck
-
 export function hitDuck () {
 
     playGunshot();
@@ -98,11 +94,6 @@ export function stopResurrection() {
         }   */
 
 //CHECK AND LINK THIS FUNCTIONS
-
-//Add function playCuac 
-//shootButton.addEventListener("click", playCuac); 
-
-
 
 
 
