@@ -82,7 +82,7 @@ function stopResurrection() {
 /* //Add function playCuac 
 shootButton.addEventListener("click", playCuac);        
 function playCuac () {
-    const cuac = document.getElementById("sounDuck"); // audio de cuac en html con id pato
+    const cuac = document.getElementById("sounDuck"); 
     cuac.play();
 
     playCuac(sound);     

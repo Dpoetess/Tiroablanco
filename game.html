@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tiro al Blanco</title>
   <link rel="stylesheet" href="/styles/style-game.css" />
-  <link rel="stylesheet" href="/styles/style-popup.css">
+  <link rel="stylesheet" href="/styles/popup-style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap" rel="stylesheet" />
@@ -14,7 +14,7 @@
 
 <body>
   <header class="settings">
-    <button class="restart bold-text1">Reiniciar</button>
+    <button class="restart bold-text1"><a href="/game.html">Reiniciar</a></button>
     <button id="mute-button">
       <img id="play-icon" src="/Source-files/play-icon.png" width="60" title="desactivar sonido" />
       <img id="mute-icon" src="/Source-files/mute.png" width="60" title="activar sonido" width="70"
@@ -25,7 +25,7 @@
     <div class="frame">
       <div class="scope" id="scope">
         <img class="target" src="/Source-files/SVG/target.svg" width="40" alt="scope image" id="target">
-        <audio id="sounDuck" loop>
+        <audio id="sounDuck">
         <source src="./audio-game/audio-duck.mp3" type="audio/mpeg" />
         </audio>
       </div>
@@ -51,26 +51,36 @@
   </section>
   <section class="vertical-stripes ">
     <div class="infogame">
-      <label class="bold-text" id="time" >Tiempo: </label>
-      <label class="score bold-text" id="score">Puntos:</label>
+      <label class="bold-text" >Tiempo:
+        <span id="time">60"</span>
+      </label>
+      <label class="score bold-text" id="score">Puntos:
+        <span id="score">0</span>
+      </label>
     </div>
     <div class="control">
       <button id="shoot-button" class="shoot bold-text1">Disparar</button>
       <!-- <audio id="autoplay-audio" loop>
         <source src="./audio-game/audio-game.mp3" type="audio/mpeg" />
-      </audio> -->
+      </audio>
+      <audio id="soundShoot">
+        <source src="./audio-game/gunshot.mp3" type="audio/mpeg" />
+        </audio>
     </div>
   </section>
 
   <div class="popup-overlay" id="popupOverlay">
     <div class="popup" id="popup">
       <div class="popup-content">
-        <h2>!Felicidades, "JUGADOR"!</h2> 
-        <p>Tu puntuación es: </p>
-        <h3>75 PUNTOS</h3>
-        <button class="close">QUIT</button>
-        <button class="close">RESTART</button>
-        <button class="close">NEXT LEVEL</button>
+        <div class="congrats bold-text">
+          <h2>!Felicidades,</h2>
+          <h2>"JUGADOR"!</h2> 
+          <p class="p regular-text">Tu puntuación es: </p>
+          <h3><span id="score">0</span>PUNTOS</h3>
+        </div>
+        <button class="close bold-text1"><a href="/game.html">Reiniciar</a></button>
+        <button class="close bold-text1"><a href="/index.html">Salir</a></button>
+        <button class="close bold-text1">Próximo nivel</button>
       </div>
     </div>
   </div>
@@ -78,7 +88,7 @@
 <!--   <script src="audio-game.js"></script> -->
   <script src="time.js"></script>
   <script src="match-position-function.js"></script>
-  <!-- <script src="/shootButton.js"></script> -->
+  <!--<script src="/shootButton.js"></script>-->
   <script src="popup-script.js"></script>
 </body>
 
