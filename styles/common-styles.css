@@ -38,6 +38,11 @@
         font-palette: --TextColor;
 }
 
+.bold-text1 {
+    font-family: "Bungee Spice";
+    font-palette: --ButtonColor;
+}
+
 .button {
     width: 192px;
     height: 65px;

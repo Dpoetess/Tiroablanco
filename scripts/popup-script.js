@@ -1,9 +1,7 @@
 
-document.addEventListener('DOMContentLoaded', () => {
-
 const popupOverlay = document.getElementById('popupOverlay');
 const playerNameSaved = document.getElementById('playerName');
-const finalScore = document.querySelector('.score');
+const finalScore = document.getElementById('scoreResult');
 const restartButton = document.getElementById('restart');
 const quitButton = document.getElementById('quit');
 const nextLevelButton = document.getElementById('nextLevel');
@@ -11,22 +9,48 @@ const nextLevelButton = document.getElementById('nextLevel');
 //retrieve player name from local storage
 const playerName = localStorage.getItem("name") || "JUGADOR!";
 
-function openPopup() {
-    popupOverlay.style.display = 'flex';
-    playerNameSaved.textContent = playerName;
-    finalScore.textContent = `${score} PUNTOS`;
-    initConfetti();
-    render();
-    playApplause();
+//retrieve player score from local storage
+const playerScore = localStorage.getItem("score");
+
+export function openPopup() {
+  let target = document.getElementById("scope")
+  target.style.display = "none";
+
+  popupOverlay.style.display = 'flex';
+  playerNameSaved.textContent = playerName;
+  finalScore.textContent = playerScore;
+  //initConfetti();
+  //render();
+  playApplause();
+  
 } 
 
-//trigger popup to open - temporary:to see and work on popup 
-setTimeout(openPopup, 5000);
+function reset () {
+  const playerScore = localStorage.getItem("score");
+}
 
+function endGame () {
+  reset();
+  window.location.assign("game.html");
+}
+
+function quitGame () {
+  reset();
+  window.location.assign("index.html");
+}
+
+restartButton.addEventListener("click", endGame);
+quitButton.addEventListener("click", quitGame);
+nextLevelButton.addEventListener('click', () => alert('Proximamente!'));
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
 
 // ------------ confetti ----------------
 //-----------Var Inits--------------
-canvas = document.getElementById("canvas");
+/* const canvas = document.getElementById("canvas");
 ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
@@ -59,7 +83,7 @@ resizeCanvas = () => {
 
 randomRange = (min, max) => Math.random() * (max - min) + min;
 
-initConfetti = () => {
+const initConfetti = () => {
   for (let i = 0; i < confettiCount; i++) {
     confetti.push({
       color: colors[Math.floor(randomRange(0, colors.length))],
@@ -149,8 +173,8 @@ window.addEventListener("click", function () {
   initConfetti();
 });
 
-
-function playApplause() {
+ */
+function playApplause () {
   applauseAudio.play().then(() => {
       applauseAudio.muted = false;  // Unmute the audio after it starts playing
   }).catch(error => {
@@ -168,29 +192,13 @@ function playApplause() {
 }
 
 
+
+
 //Event listeners
-/* restartButton.addEventListener('click', () => window.location.href = 'game.html');
-quitButton.addEventListener('click', () => window.location.href = 'index.html'); */
-nextLevelButton.addEventListener('click', () => alert('Proximamente!'));
-  //const timerId = setInterval(countdown, 1000)
 
-
-
-
-// ------ WORK IN PROGRESS ------ 
-// viene de finalización del temporizador
-/* function endGame() {
-    popupOverlay.style.display = 'block';
-    finalScore.textContent = `${score} PUNTOS`;
-}
-
-// ----- WORK IN PROGRESS -----
-function restartGame(){
-    popupOverlay.style.display = 'none';
-    score = 0;
-    time = 0;
-    //restart();
-}
- */
 
 });
+
+
+
+

@@ -7,7 +7,8 @@ let score = 0;
 function addScore () {
     const scoreArea = document.getElementById("score");
     score = score + 5;
-    scoreArea.innerHTML = `PUNTOS: <br> ${score}`;
+    scoreArea.innerHTML = score;
+    localStorage.setItem("score", score);
 }
 
 //Quack sound
@@ -80,11 +81,12 @@ function resurrectDuck () {
 }
 
 function repeatResurrection () {
+    let timer;
     timer = setInterval(resurrectDuck, 350);
+    
 }
 
-//Uncomment when stopResurrection is connected with Game Time
-//repeatResurrection();
+repeatResurrection();
 
 
 //ADD THIS FUNCTION TO THE END GAME FUNCTION
@@ -93,13 +95,4 @@ export function stopResurrection() {
     clearInterval(timer);
         }   */
 
-//CHECK AND LINK THIS FUNCTIONS
 
-
-
-//RESTART from Isa
-/*function restartGame() {
-score = 0;
-time = 0;
-restart();
-} */

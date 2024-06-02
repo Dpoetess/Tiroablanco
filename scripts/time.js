@@ -1,14 +1,12 @@
 //SCRIPT PARA TEMPORIZADOR DEL JUEGO
 
-//Button.addEventListener("click", startTimer, {once: true}); 
+import { openPopup } from "/scripts/popup-script.js";
 
-
-
-
-/* var time = 60;
+document.getElementById("shoot-button").addEventListener("click", startTimer, {once: true}, console.log("check"));
+var time = 60;
 var interval;
 
-export function startTimer() {
+function startTimer() {
     interval = setInterval(againTimer, 1000);
 }
 function restartTimer() {
@@ -21,11 +19,12 @@ function againTimer() {
     time = time <= 0 ? 60 : time;
     time--;
     timeText = time
-    document.getElementById("time").innerHTML = timeText;
+    document.getElementById("time").innerHTML = `${timeText}"`;
     if (time == 0) {
         clearInterval(interval); // stopTimer
+        openPopup(); //oper PopUp
+
     } 
-} */
+}
 
 //export {startTimer};
-
