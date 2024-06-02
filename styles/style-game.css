@@ -125,6 +125,7 @@ label {
   background: url(/Source-files/SVG/score-timer-area.svg);
   background-repeat: no-repeat;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;

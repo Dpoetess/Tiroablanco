@@ -14,7 +14,7 @@
 
 <body>
   <header class="settings">
-    <button class="restart bold-text1">Reiniciar</button>
+    <button class="restart bold-text1"><a href="/game.html">Reiniciar</a></button>
     <button id="mute-button">
       <img id="play-icon" src="/Source-files/play-icon.png" width="60" title="desactivar sonido" />
       <img id="mute-icon" src="/Source-files/mute.png" width="60" title="activar sonido" width="70"
@@ -51,10 +51,11 @@
   <section class="vertical-stripes ">
     <div class="infogame">
       <label class="bold-text" >Tiempo:
-        <br>
         <span id="time">60"</span>
       </label>
-      <label class="score bold-text" id="score">Puntos:</label>
+      <label class="score bold-text" id="score">Puntos:
+        <span id="score">0</span>
+      </label>
     </div>
     <div class="control">
       <button id="shoot-button" class="shoot bold-text1">Disparar</button>
