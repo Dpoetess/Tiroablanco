@@ -2,152 +2,180 @@
 @import "/styles/common-styles.css";
 @import "/styles/animation-start.css";
 
+html {
+    background-color: var(--lightYellow);
+}
+
 body {
     margin: 0;
     font-size: 10px;
-    height: 100%;
-    width: 480px;
-    container-type: inline-size;
+    height: 100vh;
+    width: 100%;
     position: relative;
 }
 
-@container (min-width: 200px) and (max-width:480px) {
+.frame-right, .frame-left, .frame-top, .frame-bottom {
+    position: absolute;
+    background-color: var(--yellow);
+    border: var(--red) 0.6em solid;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
 
-        .frame-right, .frame-left, .frame-top, .frame-bottom {
-        position: absolute;
-        height: 850px;
-        width: 100%;
-        background-color: var(--yellow);
-        border: var(--red) 0.6em solid;
-        position: absolute;
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
+.frame-right, .frame-left {
+    width: 3em;
+    height: 100%;
+    top: 0;
+    flex-direction: column;
+}
+
+.frame-left {
+    left: 0;
+}
+
+.frame-right {
+    right: 0;
+}
+
+.frame-top, .frame-bottom {
+    height: 3em;
+    width: 100%;
+    left: 0;
+    padding: 0 1.5em;
+}
+
+.frame-top {
+    top: 0;
+}
+
+.frame-bottom {
+    bottom: 0;
+}
+
+.light {
+    width: 1.5em;
+    height: 1.5em;
+    background-color: var(--whiteBlue);
+    border: none;
+    border-radius: 50%;
+}
+
+main {
+    height: 100%;
+    padding: 20px;
+    background-image: url(/Source-files/SVG/color-wheel-cropped.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+    gap: 20px;
+}
+
+.background-stripes {
+    width: 100%;
+    height: 100vh;
+}
+
+.welcome-sign {
+    width: 285px;
+    height: 250px;
+    background-image: url(/Source-files/SVG/welcome-sign.svg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-name {
+    text-align: center;
+    font-size: 3.5em;
+    margin-block-start: 0em;
+    margin-block-end: 0.5em;
+}
+
+.rules {
+    height: 235px;
+    width: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(/Source-files/SVG/rules-area.svg);
+    background-repeat: no-repeat;
+    background-position: center;     
+}
+
+.rules-text {
+    padding: 1rem;
+    text-align: center;
+}
+
+.regular-text {
+    font-size: 1.7em;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 20px;
+}
+
+#name {
+    width: 192px;
+    height: 65px;
+    border-radius: 0.7em;
+    border: 10px solid var(--blue) ;
+    background-color:var(--pink);
+    padding: 0.8em;
+    font-size: 2em;
+}
+
+#name:focus {
+    background-color: var(--yellow);
+    border: 10px solid var(--blue);
+    outline: none;
+}
+
+::placeholder {
+    font-family: "Tenor Sans";
+    font-size: 1.1em;
+    text-align: center;
+    color: var(--whiteBlue);
+}
+
+input[type=text] {
+    font-family: "Tenor Sans";
+    text-align: center;
+    color: var(--darkBlue);
+    font-weight: bold;
+}
+
+
+@media only screen and (min-width: 992px) {
+    body {
+        max-width: 1200px;
+        margin: auto;
     }
-    
-    .frame-right, .frame-left {
-        width: 3em;
-        height: 100%;
-        top: 0;
-        flex-direction: column;
-    }
-    
-    .frame-left {
-        left: 0;
-    }
-    
-    .frame-right {
-        right: 0;
-    }
-    
-    .frame-top, .frame-bottom {
-        height: 3em;
-        width: 100%;
-        left: 0;
-        padding: 0 1.5em;
-    }
-    
-    .frame-top {
-        top: 0;
-    }
-    
-    .frame-bottom {
-        bottom: 0;
-    }
-    
-    .light {
-        width: 1.5em;
-        height: 1.5em;
-        background-color: var(--whiteBlue);
-        border: none;
-        border-radius: 50%;
-    }
-    
+
     main {
-        width: 100%;
-        height: 850px;
-        background-image: url(/Source-files/SVG/color-wheel-cropped.svg);
-        background-size: cover;
-        display: flex;
-        flex-direction: column;
-        align-items: center;    
+        gap: 40px;
     }
-    
+
     .welcome-sign {
-        width: 80%;
-        height: 25%;
-        background-image: url(/Source-files/SVG/welcome-sign.svg);
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-        margin-top: 15%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        width: 400px;
     }
-    
-    .game-name {
-        text-align: center;
-        font-size: 3.5em;
-        margin-block-start: 0em;
-        margin-block-end: 0.5em;
-    }
-    
+
     .rules {
-        width: 80%;
-        height: 30cqh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-image: url(/Source-files/SVG/rules-area.svg);
-        background-repeat: no-repeat;
-        background-size: 80cqw 30cqh;
-        background-origin: content-box;
-        padding: none;
+        width: 310px;
     }
-    
-    .rules-text {
-        padding: 1rem;
-        text-align: center;
-        text-justify: center;
-    }
-    
-    form {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    #name {
-        width: 55%;
-        border-radius: 0.7em;
-        border: 10px solid var(--blue) ;
-        margin: 1em 0;
-        background-color:var(--pink);
-        padding: 1em;
+
+    .regular-text {
         font-size: 2em;
     }
-    
-    #name:focus {
-        background-color: var(--yellow);
-        border: 10px solid var(--blue);
-        outline: none;
-    }
-
-    ::placeholder {
-        font-family: "Tenor Sans";
-        font-size: 1.1em;
-        text-align: center;
-        color: var(--whiteBlue);
-    }
-    
-    input[type=text] {
-        font-family: "Tenor Sans";
-        
-        text-align: center;
-        color: var(--darkBlue);
-        font-weight: bold;
-    }
-    
-    
 }
