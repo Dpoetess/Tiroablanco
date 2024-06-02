@@ -34,6 +34,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 #play-icon, #mute-icon, #mute-button {
@@ -41,6 +42,7 @@ body {
   margin: 0;
   border: none;
   border-radius: 50%;
+  cursor: pointer;
 }
 
 .gamezone {
@@ -100,6 +102,7 @@ body {
   }
 }
 
+
 .duck:nth-child(1) {
   animation-delay: 0.5s;
 }
@@ -143,6 +146,7 @@ label {
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 
 .control {
@@ -163,5 +167,5 @@ label {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
-

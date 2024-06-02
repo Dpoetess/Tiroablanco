@@ -1,12 +1,12 @@
 //SCRIPT PARA TEMPORIZADOR DEL JUEGO
-
-let shoot = document.getElementById("shoot-button")
-shoot.addEventListener("click", cargarTiempo);
+const shootButton = document.getElementById("shoot-button");
+shootButton.addEventListener("click", timer);
 let time = 0;
+let textTime = 60;
+
 
 //definir y ejecutar los segundos
-function cargarTiempo() {
-    let textTime;
+function timer() {
     if (time < 0) {
         time = 59;
     }
@@ -14,10 +14,11 @@ function cargarTiempo() {
 if (time < 10) {
 textTime = 60;
 } else {
-    textTime =time;
-}
-document.getElementById("time").innerHTML = "Tiempo: "+textTime;
-time --;
+    textTime = time;
 }
 //ejecutar cada segundo
-setInterval(cargarTiempo, 1000);
+setInterval(timer, 1000);   
+document.getElementById("time").innerHTML = "Tiempo:",+textTime;
+};
+
+export {timer};
