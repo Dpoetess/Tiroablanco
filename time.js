@@ -1,25 +1,29 @@
 //SCRIPT PARA TEMPORIZADOR DEL JUEGO
-const shootButton = document.getElementById("shoot-button");
-shootButton.addEventListener("click", timer);
-let time = 0;
-let textTime = 60;
 
+let shootButton;
+shootButton = document.getElementById("shoot-button");
+shootButton.addEventListener("click", startTimer);
+var time = 60;
+var interval;
 
-//definir y ejecutar los segundos
-function timer() {
-    if (time < 0) {
-        time = 59;
-    }
-//mostrar segundos en pantalla
-if (time < 10) {
-textTime = 60;
-} else {
-    textTime = time;
+function startTimer() {
+    interval = setInterval(againTimer, 1000);
 }
-//ejecutar cada segundo
-setInterval(timer, 1000);   
-document.getElementById("time").innerHTML = "Tiempo:",+textTime;
-};
+function restartTimer() {
+    clearIntervarl(interval);
+    time = 60;
+    againTimer();
+}
+function againTimer() {
+    let timeText;
+    time = time <= 0 ? 60 : time;
+    time--;
+    timeText = time
+    document.getElementById("time").innerHTML = timeText;
+    if (time == 0) {
+        clearInterval(interval); // stopTimer
+    } 
+}
 
-export {timer};
+//export {startTimer};
 
