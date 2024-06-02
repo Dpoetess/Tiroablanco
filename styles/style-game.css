@@ -11,7 +11,7 @@ body {
   /* height: 100vh; */
   max-width: 1280px;
   border: var(--oldRed) solid 10px;
-  margin: 0;
+  margin: auto;
   display: flex;
   flex-direction: column;
   background-color: var(--lightYellow);
@@ -25,7 +25,8 @@ body {
 }
 
 .restart,
-.start {
+.start,
+.close {
   width: 192px;
   height: 65px;
   background-color: var(--red);
@@ -58,8 +59,6 @@ body {
   justify-content: center;
   align-items: center;
 }
-
-
 
 .scope {
   display: flex;
