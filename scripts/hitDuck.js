@@ -1,7 +1,8 @@
 console.log("hola");
 
-const shootButton = document.getElementById("shoot-button");
-shootButton.addEventListener("click", hitDuck);
+/* const shootButton = document.getElementById("shoot-button");
+shootButton.addEventListener("click", hitDuck); */
+
 let duckDiv = document.getElementById('ducks').getElementsByTagName('div');
 const target = document.getElementById("target");
 
@@ -14,6 +15,20 @@ function addScore () {
     console.log(score);
 }
 
+//Quack sound
+function playCuac () {
+    const cuac = document.getElementById("sounDuck"); 
+    cuac.currentTime = 0;
+    cuac.play(); 
+        }
+
+function playGunshot () {
+
+    const gunshot = document.getElementById("soundShoot"); 
+    gunshot.currentTime = 0;
+        gunshot.play(); 
+            }
+
 function findCenter (element) {
     const rect = element.getBoundingClientRect(); 
     const centerX = Math.round(rect.left + rect.width / 2); 
@@ -22,7 +37,9 @@ function findCenter (element) {
 
 //SHOOT the duck
 
-function hitDuck () {
+export function hitDuck () {
+
+    playGunshot();
     
     for (let i = 0; i< duckDiv.length; i++) {
         
@@ -38,12 +55,14 @@ function hitDuck () {
             //Sum the score
             if (duckImg.src != "https://i.ibb.co/RNtpttV/red-duck.png") {
                 addScore();
-            }
-            
+
+                //Make duck quack 
+                playCuac();
+            }             
+
             //Change the color of the shooted duck
             duckImg.src = "https://i.ibb.co/RNtpttV/red-duck.png";
-            }   
-        
+            }     
     }
 } 
 
@@ -74,20 +93,17 @@ function repeatResurrection () {
 
 //ADD THIS FUNCTION TO THE END GAME FUNCTION
 /*
-function stopResurrection() {
+export function stopResurrection() {
     clearInterval(timer);
         }   */
 
 //CHECK AND LINK THIS FUNCTIONS
-/* //Add function playCuac 
-shootButton.addEventListener("click", playCuac);        
-function playCuac () {
-    const cuac = document.getElementById("sounDuck"); 
-    cuac.play();
 
-    playCuac(sound);     
-        }
- */
+//Add function playCuac 
+//shootButton.addEventListener("click", playCuac); 
+
+
+
 
 
 //RESTART from Isa

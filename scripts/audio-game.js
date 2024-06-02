@@ -1,6 +1,5 @@
-document.getElementById("shoot-button").addEventListener("click", playAudio);
 
-function playAudio() {
+export function playAudio() {
   const audio = document.getElementById("autoplay-audio");
   audio.play().catch((error) => {
     console.error("Autoplay failed:", error);

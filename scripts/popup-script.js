@@ -169,8 +169,8 @@ function playApplause() {
 
 
 //Event listeners
-restartButton.addEventListener('click', () => window.location.href = 'game.html');
-quitButton.addEventListener('click', () => window.location.href = 'index.html');
+/* restartButton.addEventListener('click', () => window.location.href = 'game.html');
+quitButton.addEventListener('click', () => window.location.href = 'index.html'); */
 nextLevelButton.addEventListener('click', () => alert('Proximamente!'));
   //const timerId = setInterval(countdown, 1000)
 

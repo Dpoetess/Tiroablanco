@@ -1,8 +1,6 @@
 //SCRIPT PARA TEMPORIZADOR DEL JUEGO
 
-let shootButton;
-shootButton = document.getElementById("shoot-button");
-shootButton.addEventListener("click", startTimer, {once: true});
+Button.addEventListener("click", startTimer, {once: true}); 
 var time = 60;
 var interval;
 
