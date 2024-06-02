@@ -1,56 +1,49 @@
-
-const popupOverlay = document.getElementById('popupOverlay');
-const playerNameSaved = document.getElementById('playerName');
-const finalScore = document.getElementById('scoreResult');
-const restartButton = document.getElementById('restart');
-const quitButton = document.getElementById('quit');
-const nextLevelButton = document.getElementById('nextLevel');
+const popupOverlay = document.getElementById("popupOverlay");
+const playerNameSaved = document.getElementById("playerName");
+const finalScore = document.getElementById("scoreResult");
+const restartButton = document.getElementById("restart");
+const quitButton = document.getElementById("quit");
+const nextLevelButton = document.getElementById("nextLevel");
 
 //retrieve player name from local storage
 const playerName = localStorage.getItem("name") || "JUGADOR!";
 
-//retrieve player score from local storage
-const playerScore = localStorage.getItem("score");
-
 export function openPopup() {
-  let target = document.getElementById("scope")
+  //retrieve player score from local storage
+  const playerScore = localStorage.getItem("score");
+  let target = document.getElementById("scope");
   target.style.display = "none";
 
-  popupOverlay.style.display = 'flex';
+  popupOverlay.style.display = "flex";
   playerNameSaved.textContent = playerName;
   finalScore.textContent = playerScore;
   //initConfetti();
   //render();
   playApplause();
-  
-} 
+}
 
-function reset () {
+function reset() {
   const playerScore = localStorage.getItem("score");
 }
 
-function endGame () {
+function endGame() {
   reset();
   window.location.assign("game.html");
 }
 
-function quitGame () {
+function quitGame() {
   reset();
   window.location.assign("index.html");
 }
 
 restartButton.addEventListener("click", endGame);
 quitButton.addEventListener("click", quitGame);
-nextLevelButton.addEventListener('click', () => alert('Proximamente!'));
+nextLevelButton.addEventListener("click", () => alert("Proximamente!"));
 
-
-
-
-document.addEventListener('DOMContentLoaded', () => {
-
-// ------------ confetti ----------------
-//-----------Var Inits--------------
-/* const canvas = document.getElementById("canvas");
+document.addEventListener("DOMContentLoaded", () => {
+  // ------------ confetti ----------------
+  //-----------Var Inits--------------
+  /* const canvas = document.getElementById("canvas");
 ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
@@ -174,31 +167,31 @@ window.addEventListener("click", function () {
 });
 
  */
-function playApplause () {
-  applauseAudio.play().then(() => {
-      applauseAudio.muted = false;  // Unmute the audio after it starts playing
-  }).catch(error => {
-      console.log('Autoplay was prevented:', error);
-      // Fallback: Play audio on user interaction
-      document.addEventListener('click', (event) => {
-        if (!restartButton.contains(event.target) &&
-        !quitButton.contains(event.target) &&
-        !nextLevelButton.contains(event.target)) {
-        applauseAudio.muted = false;
-        applauseAudio.play();
-    }
-      }, { once: true });
-  });
-}
+  function playApplause() {
+    applauseAudio
+      .play()
+      .then(() => {
+        applauseAudio.muted = false; // Unmute the audio after it starts playing
+      })
+      .catch((error) => {
+        console.log("Autoplay was prevented:", error);
+        // Fallback: Play audio on user interaction
+        document.addEventListener(
+          "click",
+          (event) => {
+            if (
+              !restartButton.contains(event.target) &&
+              !quitButton.contains(event.target) &&
+              !nextLevelButton.contains(event.target)
+            ) {
+              applauseAudio.muted = false;
+              applauseAudio.play();
+            }
+          },
+          { once: true }
+        );
+      });
+  }
 
-
-
-
-//Event listeners
-
-
+  //Event listeners
 });
-
-
-
-
