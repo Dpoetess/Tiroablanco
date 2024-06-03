@@ -1,4 +1,5 @@
 
+  
 const popupOverlay = document.getElementById('popupOverlay');
 const playerNameSaved = document.getElementById('playerName');
 const finalScore = document.getElementById('scoreResult');
@@ -18,10 +19,9 @@ export function openPopup() {
   popupOverlay.style.display = 'flex';
   playerNameSaved.textContent =`${playerName}!`;
   finalScore.textContent = playerScore;
-  //initConfetti();
-  //render();
+  initConfetti();
+  render();
   playApplause();
-  
 } 
 
 function reset () {
@@ -38,26 +38,17 @@ function quitGame () {
   window.location.assign("index.html");
 }
 
-restartButton.addEventListener("click", endGame);
-quitButton.addEventListener("click", quitGame);
-nextLevelButton.addEventListener('click', () => alert('Proximamente!'));
-
-
-
-
-document.addEventListener('DOMContentLoaded', () => {
-
 // ------------ confetti ----------------
 //-----------Var Inits--------------
-/* const canvas = document.getElementById("canvas");
-ctx = canvas.getContext("2d");
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
-cx = ctx.canvas.width / 2;
-cy = ctx.canvas.height / 2;
+let cx = ctx.canvas.width / 2;
+let cy = ctx.canvas.height / 2;
 
 let confetti = [];
-const confettiCount = 300;
+const confettiCount = 100;
 const gravity = 0.5;
 const terminalVelocity = 5;
 const drag = 0.075;
@@ -73,16 +64,18 @@ const colors = [
 ];
 
 //-----------Functions--------------
-resizeCanvas = () => {
+function resizeCanvas() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
   cx = ctx.canvas.width / 2;
   cy = ctx.canvas.height / 2;
 };
 
-randomRange = (min, max) => Math.random() * (max - min) + min;
+function randomRange(min, max) {
+  return Math.random() * (max - min) + min;
+}
 
-const initConfetti = () => {
+function initConfetti() {
   for (let i = 0; i < confettiCount; i++) {
     confetti.push({
       color: colors[Math.floor(randomRange(0, colors.length))],
@@ -111,7 +104,7 @@ const initConfetti = () => {
 };
 
 //---------Render-----------
-render = () => {
+function render() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   confetti.forEach((confetto, index) => {
@@ -159,20 +152,6 @@ render = () => {
   window.requestAnimationFrame(render);
 };
 
-//---------Execution--------
-
-
-//----------Resize----------
-window.addEventListener("resize", function () {
-  resizeCanvas();
-});
-
-//------------Click------------
-window.addEventListener("click", function () {
-  initConfetti();
-});
-
- */
 function playApplause () {
   applauseAudio.play().then(() => {
       applauseAudio.muted = false;  // Unmute the audio after it starts playing
@@ -191,13 +170,25 @@ function playApplause () {
 }
 
 
-
-
 //Event listeners
+document.addEventListener('DOMContentLoaded', () => {
+
+//----------Resize----------
+window.addEventListener("resize", function () {
+  resizeCanvas();
+});
+
+//------------Click------------
+window.addEventListener("click", function () {
+  initConfetti();
+});
+
+restartButton.addEventListener("click", endGame);
+quitButton.addEventListener("click", quitGame);
+nextLevelButton.addEventListener('click', () => alert('Proximamente!'));
 
 
 });
-
 
 
 
