@@ -19,6 +19,7 @@ export function openPopup() {
   popupOverlay.style.display = 'flex';
   playerNameSaved.textContent =`${playerName}!`;
   finalScore.textContent = playerScore;
+  resetConfetti();
   initConfetti();
   render();
   playApplause();
@@ -48,7 +49,7 @@ let cx = ctx.canvas.width / 2;
 let cy = ctx.canvas.height / 2;
 
 let confetti = [];
-const confettiCount = 100;
+const confettiCount = 300;
 const gravity = 0.5;
 const terminalVelocity = 5;
 const drag = 0.075;
@@ -73,6 +74,10 @@ function resizeCanvas() {
 
 function randomRange(min, max) {
   return Math.random() * (max - min) + min;
+}
+
+function resetConfetti() {
+  confetti = [];
 }
 
 function initConfetti() {
