@@ -9,11 +9,7 @@ var interval;
 function startTimer() {
     interval = setInterval(againTimer, 1000);
 }
-function restartTimer() {
-    clearIntervarl(interval);
-    time = 60;
-    againTimer();
-}
+
 function againTimer() {
     let timeText;
     time = time <= 0 ? 60 : time;
@@ -22,9 +18,7 @@ function againTimer() {
     document.getElementById("time").innerHTML = `${timeText}"`;
     if (time == 0) {
         clearInterval(interval); // stopTimer
-        openPopup(); //oper PopUp
-
+        openPopup(); //open PopUp
+        
     } 
 }
-
-//export {startTimer};

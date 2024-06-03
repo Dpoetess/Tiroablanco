@@ -88,11 +88,3 @@ function repeatResurrection () {
 
 repeatResurrection();
 
-
-//ADD THIS FUNCTION TO THE END GAME FUNCTION
-/*
-export function stopResurrection() {
-    clearInterval(timer);
-        }   */
-
-

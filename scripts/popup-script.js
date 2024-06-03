@@ -9,8 +9,6 @@ const nextLevelButton = document.getElementById('nextLevel');
 //retrieve player name from local storage
 const playerName = localStorage.getItem("name") || "JUGADOR!";
 
-
-
 export function openPopup() {
 //retrieve player score from local storage
   const playerScore = localStorage.getItem("score");
