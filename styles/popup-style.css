@@ -2,6 +2,7 @@
 
 .popup-overlay {
     display: none;
+    justify-content: center;
     position: fixed;
     top: 0;
     left: 0;
@@ -14,13 +15,9 @@
     height: 647px;
     position:absolute;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    top: 10%;
-    left: 10%;
-    bottom: 60%;
-    /*height: 60%;*/
-    transform: translate(-50% -50%);
+    margin: 20px;
     background-color: var(--oldRed);
     border: solid #FDEEBD 10px;
     border-radius: 55px;
