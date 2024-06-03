@@ -17,7 +17,7 @@ export function openPopup() {
   target.style.display = "none";
 
   popupOverlay.style.display = 'flex';
-  playerNameSaved.textContent = `${playerName}!`;
+  playerNameSaved.textContent = playerName;
   finalScore.textContent = playerScore;
   //initConfetti();
   //render();

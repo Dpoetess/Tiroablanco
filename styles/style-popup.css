@@ -3,7 +3,6 @@
 
 .popup-overlay {
     display: none;
-    justify-content: center;
     position: fixed;
     top: 0;
     left: 0;
@@ -11,14 +10,19 @@
     height: 100%;
     backdrop-filter: blur(2px);
 }
+
 .popup {
     width: 348px;
     height: 647px;
     position:absolute;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    margin: 20px;
+    top: 10%;
+    left: 10%;
+    bottom: 60%;
+    /*height: 60%;*/
+    transform: translate(-50% -50%);
     background-color: var(--oldRed);
     border: solid #FDEEBD 10px;
     border-radius: 55px;
