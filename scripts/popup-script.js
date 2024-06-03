@@ -9,15 +9,16 @@ const nextLevelButton = document.getElementById('nextLevel');
 //retrieve player name from local storage
 const playerName = localStorage.getItem("name") || "JUGADOR!";
 
-//retrieve player score from local storage
-const playerScore = localStorage.getItem("score");
+
 
 export function openPopup() {
+//retrieve player score from local storage
+  const playerScore = localStorage.getItem("score");
   let target = document.getElementById("scope")
   target.style.display = "none";
 
   popupOverlay.style.display = 'flex';
-  playerNameSaved.textContent = playerName;
+  playerNameSaved.textContent =`${playerName}!`;
   finalScore.textContent = playerScore;
   //initConfetti();
   //render();

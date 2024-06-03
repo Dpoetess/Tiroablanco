@@ -73,7 +73,7 @@
     <div class="popup" id="popup">
       <div class="popup-content">
         <div class="congrats bold-text">
-          <h2>!Felicidades,</h2>
+          <h2>¡Felicidades,</h2>
           <h2 id="playerName">"JUGADOR"!</h2> 
           <p class="p regular-text">Tu puntuación es: </p>
           <h3><span id="scoreResult">0</span>PUNTOS</h3>
@@ -81,6 +81,12 @@
         <button class="close bold-text1" id="restart">Reiniciar</button>
         <button class="close bold-text1" id="quit">Salir</button>
         <button class="close bold-text1" id="nextLevel">Próximo nivel</button>
+      </div>
+      <div class="popup-conf">
+        <canvas class="confetti" id="canvas"></canvas>
+        <audio id="applauseAudio">
+          <source src="audio-game\applause.mp3" type="audio/mpeg" muted>
+        </audio>
       </div>
     </div>
   </div>
