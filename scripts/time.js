@@ -3,7 +3,7 @@
 import { openPopup } from "/scripts/popup-script.js";
 
 document.getElementById("shoot-button").addEventListener("click", startTimer, {once: true}, console.log("check"));
-var time = 60;
+var time = 10;
 var interval;
 
 function startTimer() {
@@ -12,7 +12,7 @@ function startTimer() {
 
 function againTimer() {
     let timeText;
-    time = time <= 0 ? 60 : time;
+    time = time <= 0 ? 10 : time;
     time--;
     timeText = time
     document.getElementById("time").innerHTML = `${timeText}"`;
